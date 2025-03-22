@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+header a,
+a:hover {
+  text-decoration: none;
+  color: #b9b9b9;
+}
 
 body {
   font-family: "ABeeZee";
@@ -91,7 +96,7 @@ a {
 }
 
 .menu-desplegable-contenido a {
-  color: black;
+  color: rgb(94, 94, 94);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -181,13 +186,17 @@ a {
   z-index: 2;
   max-width: 400px;
 }
+
+.content h1 p {
+  font-size: 24px;
+}
 h1 {
-  font-size: 3em;
+  font-size: 56px;
   font-weight: bold;
 }
 p {
   margin: 10px 0;
-  font-size: 1.2em;
+  font-size: 16px;
 }
 button {
   background: white;
@@ -211,10 +220,10 @@ button {
   text-align: left;
 }
 .stats h2 {
-  font-size: 2em;
+  font-size: 24px;
 }
 .stats p {
-  font-size: 1em;
+  font-size: 24px;
 }
 
 .separador {
@@ -343,7 +352,127 @@ hr {
 .box:hover {
   transform: scale(1.05); /* Aumenta el tamaño en un 20% */
 }
-/* <---------------------------------- seccion de  comentarios-----------------------------> */
+/* <---------------------------------- seccion de  footeer-----------------------------> */
+.promocional {
+  width: 50%;
+  position: relative;
+  bottom: 0%; /* Acomoda el anuncion del correo por encima del footer*/
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para el div */
+  z-index: 10;
+  margin-bottom: -75px;
+}
+
+.promocional h1 {
+  color: white;
+  font-size: 24px;
+}
+
+.promocional input {
+  padding: 8px 15px;
+  background-color: white;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  height: 45px;
+  width: 100%;
+  max-width: 600px;
+  font-size: 16px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 25px;
+}
+
+.promocional button {
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  margin-top: 10px;
+  padding: 8px 15px;
+  width: 100%;
+}
+
+.footer {
+  background-color: #ebeaea;
+  padding: 7%;
+  position: relative;
+}
+
+.logo_byke {
+  height: 140px;
+  margin-bottom: 1;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: left;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+}
+
+.contenedor_seccion {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.seccion {
+  width: 250px;
+  /* background-color: #ccc; */
+  text-align: justify;
+}
+
+.texto {
+  color: gray;
+  font-size: 16px;
+}
+
+.seccion h4 {
+  padding-bottom: 20px;
+}
+.seccion li {
+  color: gray;
+}
+
+.seccion ul {
+  padding-bottom: 20px;
+  list-style-type: none;
+}
+
+.suscribirse {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.suscribirse:hover {
+  color: white;
+  background-color: #000000; /* Color al pasar el mouse */
+}
+
+.derechos_reservados {
+  border-top: 1px solid #cecece;
+  color: gray;
+}
 
 @media screen and (max-width: 576px) {
   .header p {
@@ -368,7 +497,6 @@ hr {
     gap: 10px;
   }
 }
-
 @media screen and (max-width: 480px) {
   .header {
     height: auto;
@@ -382,9 +510,4 @@ hr {
   .logo-principal {
     height: 50px;
   }
-}
-
-.footer {
-  width: 100%;
-  background-color: black;
 }
