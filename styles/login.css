@@ -1,92 +1,110 @@
 body {
-    background-color: #f5f7fa;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  background-color: #f5f7fa;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
-.login-card {
-    background-color: white;
-    border-radius: 20px;
-    padding: 40px;
-    width: 350px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Asegúrate de que el contenedor principal tenga una posición relativa */
+body,
+.contenido {
+  position: relative;
+}
+
+/* Posiciona la flecha en la esquina superior izquierda */
+.arrow img {
+  position: fixed;
+  top: 10px; /* Ajusta según sea necesario */
+  left: 10px; /* Ajusta según sea necesario */
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000; /* Asegúrate de que la flecha esté encima de otros elementos */
+}
+
+.arrow {
+  width: 30px; /* Ajusta el tamaño de la flecha según sea necesario */
+  height: auto;
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    font-size: 28px;
-    margin-bottom: 30px;
-    font-weight: 600;
-
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
 .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+  margin-bottom: 20px;
+  text-align: left;
 }
 
 label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: normal;
+  display: block;
+  margin-bottom: 5px;
+  font-weight: normal;
 }
 
 input[type="email"],
 input[type="password"] {
-    width: 100%;
-    padding: 10px 0;
-    border: none;
-    border-bottom: 1px solid #000000;
-    outline: none;
-    font-size: 16px;
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid #000000;
+  outline: none;
+  font-size: 16px;
 }
 
 .submit-btn {
-    background-color: #111;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 12px 40px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  background-color: #111;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 40px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    border: 1px solid #ddd;
-    background-color: white;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
 }
 
 .register-link {
-    margin-top: 15px;
-    
+  margin-top: 15px;
 }
 
-.register-link a{
-    text-decoration: none;
-
+.register-link a {
+  text-decoration: none;
+  color: #555555;
 }
 
-.register-link a:hover{
-    text-decoration: underline;
-
+.register-link a:hover {
+  text-decoration: underline;
 }
