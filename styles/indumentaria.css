@@ -348,8 +348,11 @@ section {
   font-size: 35px;
 }
 
-/* CONTENEDOR DE PRODUCTOS */
+section{
+  margin-left: 4%; /* para separar el filtro de los productos y el titulo */
+}
 
+/* CONTENEDOR DE PRODUCTOS */
 .contenedor_productos {
   display: grid;
   grid-template-columns: repeat(4, 2fr);
@@ -478,6 +481,7 @@ section {
   width: 250px;
   /* background-color: #ccc; */
   text-align: justify;
+  
 }
 
 .seccion h4 {

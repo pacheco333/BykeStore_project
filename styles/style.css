@@ -2,17 +2,31 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-header a,
-a:hover {
-  text-decoration: none;
-  color: #b9b9b9;
+  font-family: "Baloo Chettan 2", sans-serif;
 }
 
-body {
-  font-family: "ABeeZee";
-  line-height: 1.6;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+input,
+textarea {
+  margin: 0;
 }
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* NAVBAR */
 
 .header {
   display: flex;
@@ -39,7 +53,7 @@ body {
 }
 
 a {
-  color: #7e18dd;
+  color: #555555;
 }
 
 .logo-principal {
@@ -96,7 +110,7 @@ a {
 }
 
 .menu-desplegable-contenido a {
-  color: rgb(94, 94, 94);
+  color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -124,9 +138,8 @@ a {
   height: 45px;
   width: 100%;
   max-width: 600px;
-  font-family: "ABeeZee";
   font-size: 16px;
-  background-image: url(img/buscar.png);
+  background-image: url("/img/buscar.png");
   background-repeat: no-repeat;
   background-position: 10px center;
   padding-left: 45px;
@@ -147,7 +160,30 @@ a {
   margin-left: auto; /* Empuja los iconos hacia la derecha */
 }
 
-.logos-sec {
+.logo_carrito:hover {
+  background-size: 100%;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  transform: rotate(10deg);
+}
+
+.logos_login:hover {
+  background-size: 100%;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* .iconos-container:hover {
+  /* background-size: 100%; Aumenta el tamaño del icono al hacer hover */
+/* background-size: 100%; */
+/* transform: scale(1.1); Hace que el crezca un poco */
+/* transform: scale(1.1); */
+/* filter: brightness(1.2); Aumenta el brillo para hacer efecto de resaltado */
+/* filter: brightness(1.5); */
+/* transition: all 0.3s ease-in-out;
+} */
+
+/* .logos-sec {
   display: flex;
   align-items: center;
   list-style: none;
@@ -157,6 +193,45 @@ a {
 .logos-sec img {
   max-height: 30px;
   width: auto;
+} */
+
+/* BARRA DE NAVEGACION */
+
+/* .contenedor_navegacion {
+  width: 80%;
+  margin: auto;
+  background: white;
+  padding: 20px;
+} */
+
+/* CONFIGURACION COLUMNAS */
+
+.division {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  margin-bottom: 5%;
+}
+
+section {
+  flex: 1;
+}
+
+/* NAVEGACION */
+
+.contenedor_navegacion {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+}
+
+.contenedor_navegacion a {
+  color: black;
+}
+
+.texto_cont:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
 }
 
 /*Parte siguiente al navbar*/

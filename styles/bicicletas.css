@@ -347,6 +347,9 @@ section {
 .tituloRuta {
   font-size: 35px;
 }
+section{
+  margin-left: 4%; /* para separar el filtro de los productos y el titulo */
+}
 
 /* CONTENEDOR DE PRODUCTOS */
 
