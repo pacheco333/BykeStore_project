@@ -1,3 +1,5 @@
+/* Estilos predeterminados */
+
 * {
   margin: 0;
   padding: 0;
@@ -234,224 +236,159 @@ section {
   transition: all 0.4s ease-in-out;
 }
 
-/*Parte siguiente al navbar*/
+/* FILTRAR */
 
-.hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background: url("/img/principal.png") no-repeat center center/cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 50px;
-  color: white;
-}
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-}
-.content {
-  position: relative;
-  z-index: 2;
-  max-width: 400px;
+/* Estilo del borde de la caja en GENERAL*/
+.filtrar {
+  /* display: grid; */
+  width: 250px;
+  /* Margenes para visualizar la correcta visualizacion, (eliminar o modificar) */
+  margin-left: 40px;
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+  border: 1px solid rgba(180, 168, 168, 0.527);
+  border-radius: 10px;
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); */
+  background-color: #f8f9fa;
+  height: 53vh;
 }
 
-.content h1 p {
-  font-size: 24px;
+/* Decoracion caja filtrar */
+.titulo_filtrar {
+  /* display: flex; */
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  /* justify-content: space-between;
+  align-items: center;
+  width: 100%; */
 }
-h1 {
-  font-size: 56px;
-  font-weight: bold;
+
+/* Justificacion de Icono y Texto Filtrar */
+.titulo_filtrar h1 {
+  /* margin: 10px; */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
-p {
-  margin: 10px 0;
-  font-size: 16px;
+
+/* Ajuste icono filtrar */
+.titulo_filtrar i {
+  margin-left: 50%;
 }
-button {
-  background: white;
+
+/* Decoracion caja Tipos de bicicletas */
+.tipo_bicileta {
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Decoracion letra Tipos de bicicletas */
+.tipo_bicileta a {
   color: black;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1em;
+}
+
+/* Decoracion al pasar el mouse sobre los tipos de bicicleta  */
+.tipo_bicileta a:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
+}
+
+/* PRECIO */
+
+.precio {
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.precio label:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
   cursor: pointer;
-  margin-top: 10px;
-  border-radius: 25px;
-}
-.stats {
-  position: absolute;
-  bottom: 120px;
-  left: 50px;
-  display: flex;
-  gap: 50px;
-  z-index: 2;
-}
-.stats div {
-  text-align: left;
-}
-.stats h2 {
-  font-size: 24px;
-}
-.stats p {
-  font-size: 24px;
 }
 
-.separador {
-  background-color: #000000;
-  height: 120px;
+/* GAMA */
+
+.gama {
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
-/*<------------------seccion de nuevos productos------------->*/
-.tarjetas {
+
+.gama label:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+/* AÑO */
+
+.anio {
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.anio label:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+/* TITULO DE LA PAGINA */
+
+.tituloRuta {
+  font-size: 35px;
+}
+
+section{
+  margin-left: 4%; /* para separar el filtro de los productos y el titulo */
+}
+
+/* CONTENEDOR DE PRODUCTOS */
+.contenedor_productos {
   display: grid;
-  grid-auto-flow: column; /* Pone los elementos en fila */
-  gap: 10px;
-}
-.nuevos_productos {
-  display: flex;
-  flex-direction: column; /* Acomoda los elementos en columna */
-  align-items: center; /* Centra horizontalmente */
-}
-.nuevos_productos h2 {
-  font-size: 40px;
-  margin: 50px 0 50px 0;
-}
-.productos {
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.nuevos_productos button {
-  margin: 40px 0 40px 0;
-  padding: 15px 50px 15px 50px;
-  border: 1px solid #d1d1d1;
-}
-
-hr {
-  max-width: 100%;
-  width: 1300px;
-  border: none; /* Quita el borde predeterminado */
-  height: 1px; /* Grosor de la línea */
-  background-color: #d1d1d1;
-  margin: 20px auto; /* Espaciado arriba y abajo */
-}
-/* <-----------------------------------------------------------> */
-/*<------------------seccion de top ventas------------->*/
-.tarjetas {
-  display: grid;
-  grid-auto-flow: column; /* Pone los elementos en fila */
-  gap: 20px;
-}
-.top_ventas {
-  display: flex;
-  flex-direction: column; /* Acomoda los elementos en columna */
-  align-items: center; /* Centra horizontalmente */
-}
-.top_ventas h2 {
-  font-size: 40px;
-  margin: 50px 0 50px 0;
+  grid-template-columns: repeat(4, 2fr);
+  gap: 1rem;
 }
 
 .imagen_bicicleta {
   max-width: 100%;
   border-radius: 1rem;
 }
-.productos {
-  width: 450px;
-  justify-content: space-around;
-  flex-wrap: wrap;
+
+.producto {
   transition: all 0.3s ease;
-  margin: 10px;
 }
 
-.productos h3 {
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
-
-.precio {
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
-.productos:hover {
+.producto:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
   background-color: #f0f0f0;
   border-radius: 10px;
 }
-.top_ventas button {
-  margin: 40px 0 40px 0;
-  padding: 15px 50px 15px 50px;
-  border: 1px solid #d1d1d1;
-}
-/* <-----------------------------------------------------------> */
-/*<------------------seccion de collage------------->*/
-.collage {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: auto;
-  gap: 20px; /* Espacio entre imágenes */
-  max-width: 1200px; /* Ajusta el ancho */
-  margin: 120px auto 20px auto;
-  background: #f2f2f2;
-  padding: 30px;
-  border-radius: 15px;
+
+.titulo_producto {
+  padding-left: 10px;
 }
 
-.collage h2 {
-  grid-column: 1 / -1; /* Ocupa toda la fila del grid */
-  text-align: center; /* Centra el texto */
-  font-size: 24px; /* Tamaño del texto */
-  margin: 15px auto 40px auto; /* Espacio debajo del título */
+.precio_producto {
+  padding-left: 10px;
 }
 
-/* Estilos generales para cada imagen */
-.box {
-  position: relative;
-  border-radius: 15px;
-  overflow: hidden;
-  height: 235px; /* Altura fija */
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.3s ease; /* Suaviza la transición */
+.precio_producto {
+  padding-bottom: 10px;
 }
 
-/* Texto dentro de las imágenes */
-.box span {
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  color: rgb(255, 255, 255);
-  font-size: 30px;
-  font-weight: bold;
-}
+/* FOOTER CON CONTENEDOR DE CORREO ELECTRONICO */
 
-/* Especificar imágenes para cada tipo */
-.ruta {
-  background-image: url("/img/collage/collage_ruta.jpg");
-  grid-column: span 3;
-}
-.montaña {
-  background-image: url("/img/collage/collage_montaña.jpg");
-  grid-column: span 2;
-}
-.urbanas {
-  background-image: url("/img/collage/collage_urbana.jpg");
-  grid-column: span 2; /* Hace que esta imagen ocupe dos columnas */
-}
-.pista {
-  background-image: url("/img/collage/collage_pista.jpg");
-  grid-column: span 3;
-}
-
-.box:hover {
-  transform: scale(1.05); /* Aumenta el tamaño en un 20% */
-}
-/* <---------------------------------- seccion de  footeer-----------------------------> */
 .promocional {
   width: 50%;
   position: relative;
@@ -472,7 +409,6 @@ hr {
 
 .promocional h1 {
   color: white;
-  font-size: 24px;
 }
 
 .promocional input {
@@ -496,6 +432,13 @@ hr {
   margin-top: 10px;
   padding: 8px 15px;
   width: 100%;
+  font-size: 16px;
+}
+
+.promocional button:hover {
+  background-color: black;
+  cursor: pointer;
+  color: white;
 }
 
 .footer {
@@ -506,12 +449,11 @@ hr {
 
 .logo_byke {
   height: 140px;
-  margin-bottom: 1;
 }
 
 .social-icons {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   gap: 15px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -539,74 +481,24 @@ hr {
   width: 250px;
   /* background-color: #ccc; */
   text-align: justify;
-}
-
-.texto {
-  color: gray;
-  font-size: 16px;
+  
 }
 
 .seccion h4 {
   padding-bottom: 20px;
 }
-.seccion li {
-  color: gray;
-}
 
 .seccion ul {
   padding-bottom: 20px;
-  list-style-type: none;
-}
-
-.suscribirse {
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.suscribirse:hover {
-  color: white;
-  background-color: #000000; /* Color al pasar el mouse */
 }
 
 .derechos_reservados {
-  border-top: 1px solid #cecece;
-  color: gray;
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
 }
 
-@media screen and (max-width: 576px) {
-  .header p {
-    font-size: 14px;
-  }
-
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-links li {
-    margin: 5px 0;
-  }
-
-  .buscar-input {
-    height: 40px;
-  }
-
-  /* Asegurar que los iconos permanezcan juntos */
-  .iconos-container {
-    gap: 10px;
-  }
-}
-@media screen and (max-width: 480px) {
-  .header {
-    height: auto;
-    padding: 8px 2%;
-  }
-
-  .navbar {
-    padding: 8px 2%;
-  }
-
-  .logo-principal {
-    height: 50px;
-  }
-}
+/* .seccion {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 1rem;
+} */
