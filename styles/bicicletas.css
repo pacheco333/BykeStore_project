@@ -1,0 +1,503 @@
+/* Estilos predeterminados */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Baloo Chettan 2", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+input,
+textarea {
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* NAVBAR */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  height: 40px;
+  padding: 0 5%;
+  text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  padding: 0.5rem 5%;
+  position: relative;
+  height: 140px;
+  min-height: 10px;
+  flex-wrap: wrap;
+  box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.2);
+}
+
+a {
+  color: #555555;
+}
+
+.logo-principal {
+  height: 140px;
+  cursor: pointer;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: flex-start;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Menu de bicicletas desplegable */
+.menu-desplegable {
+  position: relative;
+}
+
+.menu-desplegable-contenido {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 200px;
+  box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  border-radius: 5px;
+}
+
+.menu-desplegable:hover .menu-desplegable-contenido {
+  display: block;
+}
+
+.menu-desplegable-contenido a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.menu-desplegable-contenido a:hover {
+  background-color: #f1f1f1;
+}
+
+.buscar-contenedor {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.buscar-input {
+  padding: 8px 15px;
+  background-color: #dddddd70;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  height: 45px;
+  width: 100%;
+  max-width: 600px;
+  font-size: 16px;
+  background-image: url("/img/buscar.png");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  padding-left: 45px;
+  background-size: 25px;
+}
+
+.buscar-input:focus {
+  outline: none;
+  border-color: #0c8ec2;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.801);
+}
+
+/* Nuevo contenedor para los iconos */
+.iconos-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto; /* Empuja los iconos hacia la derecha */
+}
+
+.logo_carrito:hover {
+  background-size: 100%;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  transform: rotate(10deg);
+}
+
+.logos_login:hover {
+  background-size: 100%;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* .iconos-container:hover {
+  /* background-size: 100%; Aumenta el tamaño del icono al hacer hover */
+/* background-size: 100%; */
+/* transform: scale(1.1); Hace que el crezca un poco */
+/* transform: scale(1.1); */
+/* filter: brightness(1.2); Aumenta el brillo para hacer efecto de resaltado */
+/* filter: brightness(1.5); */
+/* transition: all 0.3s ease-in-out;
+} */
+
+/* .logos-sec {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  cursor: pointer;
+}
+
+.logos-sec img {
+  max-height: 30px;
+  width: auto;
+} */
+
+/* BARRA DE NAVEGACION */
+
+/* .contenedor_navegacion {
+  width: 80%;
+  margin: auto;
+  background: white;
+  padding: 20px;
+} */
+
+/* CONFIGURACION COLUMNAS */
+
+.division {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  margin-bottom: 5%;
+}
+
+section {
+  flex: 1;
+}
+
+/* NAVEGACION */
+
+.contenedor_navegacion {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+}
+
+.contenedor_navegacion a {
+  color: black;
+}
+
+.texto_cont:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
+}
+
+/* FILTRAR */
+
+/* Estilo del borde de la caja en GENERAL*/
+.filtrar {
+  /* display: grid; */
+  width: 250px;
+  /* Margenes para visualizar la correcta visualizacion, (eliminar o modificar) */
+  margin-left: 40px;
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+  border: 1px solid rgba(180, 168, 168, 0.527);
+  border-radius: 10px;
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); */
+  background-color: #f8f9fa;
+  height: 80vh;
+}
+
+/* Decoracion caja filtrar */
+.titulo_filtrar {
+  /* display: flex; */
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  /* justify-content: space-between;
+  align-items: center;
+  width: 100%; */
+}
+
+/* Justificacion de Icono y Texto Filtrar */
+.titulo_filtrar h1 {
+  /* margin: 10px; */
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* Ajuste icono filtrar */
+.titulo_filtrar i {
+  margin-left: 50%;
+}
+
+/* Decoracion caja Tipos de bicicletas */
+.tipo_bicileta {
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* Decoracion letra Tipos de bicicletas */
+.tipo_bicileta a {
+  color: black;
+}
+
+/* Decoracion al pasar el mouse sobre los tipos de bicicleta  */
+.tipo_bicileta a:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
+}
+
+/* PRECIO */
+
+.precio {
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.precio label:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+/* GAMA */
+
+.gama {
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.gama label:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+/* AÑO */
+
+.anio {
+  border-bottom: 1px solid rgba(180, 168, 168, 0.527);
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.anio label:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+/* TITULO DE LA PAGINA */
+
+.tituloRuta {
+  font-size: 35px;
+}
+section {
+  margin-left: 4%; /* para separar el filtro de los productos y el titulo */
+}
+
+/* CONTENEDOR DE PRODUCTOS */
+
+.contenedor_productos {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  gap: 1rem;
+}
+
+.imagen_bicicleta {
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.producto {
+  transition: all 0.3s ease;
+}
+
+.producto:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.titulo_producto {
+  padding-left: 10px;
+}
+
+.precio_producto {
+  padding-left: 10px;
+}
+
+.precio_producto {
+  padding-bottom: 10px;
+}
+
+/* FOOTER CON CONTENEDOR DE CORREO ELECTRONICO */
+
+.promocional {
+  width: 50%;
+  position: relative;
+  bottom: 0%; /* Acomoda el anuncion del correo por encima del footer*/
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para el div */
+  z-index: 10;
+  margin-bottom: -75px;
+}
+
+.promocional h1 {
+  color: white;
+}
+
+.promocional input {
+  padding: 8px 15px;
+  background-color: white;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  height: 45px;
+  width: 100%;
+  max-width: 600px;
+  font-size: 16px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 25px;
+}
+
+.promocional button {
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  margin-top: 10px;
+  padding: 8px 15px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.promocional button:hover {
+  background-color: black;
+  cursor: pointer;
+  color: white;
+}
+
+.footer {
+  background-color: #ebeaea;
+  padding: 7%;
+  position: relative;
+}
+
+.logo_byke {
+  height: 140px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+}
+
+.contenedor_seccion {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.seccion {
+  width: 250px;
+  /* background-color: #ccc; */
+  text-align: justify;
+}
+
+.seccion h4 {
+  padding-bottom: 20px;
+}
+
+.seccion ul {
+  padding-bottom: 20px;
+}
+
+.derechos_reservados {
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+}
+
+/* .seccion {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 1rem;
+} */

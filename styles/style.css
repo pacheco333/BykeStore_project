@@ -2,12 +2,31 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Baloo Chettan 2", sans-serif;
 }
 
-body {
-  font-family: "ABeeZee";
-  line-height: 1.6;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+input,
+textarea {
+  margin: 0;
 }
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* NAVBAR */
 
 .header {
   display: flex;
@@ -34,7 +53,7 @@ body {
 }
 
 a {
-  color: #7e18dd;
+  color: #555555;
 }
 
 .logo-principal {
@@ -119,9 +138,8 @@ a {
   height: 45px;
   width: 100%;
   max-width: 600px;
-  font-family: "ABeeZee";
   font-size: 16px;
-  background-image: url(img/buscar.png);
+  background-image: url("/img/buscar.png");
   background-repeat: no-repeat;
   background-position: 10px center;
   padding-left: 45px;
@@ -142,7 +160,30 @@ a {
   margin-left: auto; /* Empuja los iconos hacia la derecha */
 }
 
-.logos-sec {
+.logo_carrito:hover {
+  background-size: 100%;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  transform: rotate(10deg);
+}
+
+.logos_login:hover {
+  background-size: 100%;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* .iconos-container:hover {
+  /* background-size: 100%; Aumenta el tamaño del icono al hacer hover */
+/* background-size: 100%; */
+/* transform: scale(1.1); Hace que el crezca un poco */
+/* transform: scale(1.1); */
+/* filter: brightness(1.2); Aumenta el brillo para hacer efecto de resaltado */
+/* filter: brightness(1.5); */
+/* transition: all 0.3s ease-in-out;
+} */
+
+/* .logos-sec {
   display: flex;
   align-items: center;
   list-style: none;
@@ -152,6 +193,45 @@ a {
 .logos-sec img {
   max-height: 30px;
   width: auto;
+} */
+
+/* BARRA DE NAVEGACION */
+
+/* .contenedor_navegacion {
+  width: 80%;
+  margin: auto;
+  background: white;
+  padding: 20px;
+} */
+
+/* CONFIGURACION COLUMNAS */
+
+.division {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  margin-bottom: 5%;
+}
+
+section {
+  flex: 1;
+}
+
+/* NAVEGACION */
+
+.contenedor_navegacion {
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 40px;
+}
+
+.contenedor_navegacion a {
+  color: black;
+}
+
+.texto_cont:hover {
+  color: rgb(53, 135, 230);
+  transition: all 0.4s ease-in-out;
 }
 
 /*Parte siguiente al navbar*/
@@ -181,13 +261,17 @@ a {
   z-index: 2;
   max-width: 400px;
 }
+
+.content h1 p {
+  font-size: 24px;
+}
 h1 {
-  font-size: 3em;
+  font-size: 56px;
   font-weight: bold;
 }
 p {
   margin: 10px 0;
-  font-size: 1.2em;
+  font-size: 16px;
 }
 button {
   background: white;
@@ -211,10 +295,10 @@ button {
   text-align: left;
 }
 .stats h2 {
-  font-size: 2em;
+  font-size: 24px;
 }
 .stats p {
-  font-size: 1em;
+  font-size: 24px;
 }
 
 .separador {
@@ -260,7 +344,7 @@ hr {
 .tarjetas {
   display: grid;
   grid-auto-flow: column; /* Pone los elementos en fila */
-  gap: 10px;
+  gap: 20px;
 }
 .top_ventas {
   display: flex;
@@ -271,9 +355,33 @@ hr {
   font-size: 40px;
   margin: 50px 0 50px 0;
 }
+
+.imagen_bicicleta {
+  max-width: 100%;
+  border-radius: 1rem;
+}
 .productos {
+  width: 450px;
   justify-content: space-around;
   flex-wrap: wrap;
+  transition: all 0.3s ease;
+  margin: 10px;
+}
+
+.productos h3 {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.precio {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.productos:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+  border-radius: 10px;
 }
 .top_ventas button {
   margin: 40px 0 40px 0;
@@ -343,7 +451,127 @@ hr {
 .box:hover {
   transform: scale(1.05); /* Aumenta el tamaño en un 20% */
 }
-/* <---------------------------------- seccion de  comentarios-----------------------------> */
+/* <---------------------------------- seccion de  footeer-----------------------------> */
+.promocional {
+  width: 50%;
+  position: relative;
+  bottom: 0%; /* Acomoda el anuncion del correo por encima del footer*/
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para el div */
+  z-index: 10;
+  margin-bottom: -75px;
+}
+
+.promocional h1 {
+  color: white;
+  font-size: 24px;
+}
+
+.promocional input {
+  padding: 8px 15px;
+  background-color: white;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  height: 45px;
+  width: 100%;
+  max-width: 600px;
+  font-size: 16px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 25px;
+}
+
+.promocional button {
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  margin-top: 10px;
+  padding: 8px 15px;
+  width: 100%;
+}
+
+.footer {
+  background-color: #ebeaea;
+  padding: 7%;
+  position: relative;
+}
+
+.logo_byke {
+  height: 140px;
+  margin-bottom: 1;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: left;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+}
+
+.contenedor_seccion {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.seccion {
+  width: 250px;
+  /* background-color: #ccc; */
+  text-align: justify;
+}
+
+.texto {
+  color: gray;
+  font-size: 16px;
+}
+
+.seccion h4 {
+  padding-bottom: 20px;
+}
+.seccion li {
+  color: gray;
+}
+
+.seccion ul {
+  padding-bottom: 20px;
+  list-style-type: none;
+}
+
+.suscribirse {
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.suscribirse:hover {
+  color: white;
+  background-color: #000000; /* Color al pasar el mouse */
+}
+
+.derechos_reservados {
+  border-top: 1px solid #cecece;
+  color: gray;
+}
 
 @media screen and (max-width: 576px) {
   .header p {
@@ -368,7 +596,6 @@ hr {
     gap: 10px;
   }
 }
-
 @media screen and (max-width: 480px) {
   .header {
     height: auto;
@@ -382,9 +609,4 @@ hr {
   .logo-principal {
     height: 50px;
   }
-}
-
-.footer {
-  width: 100%;
-  background-color: black;
 }
