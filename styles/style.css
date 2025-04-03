@@ -310,7 +310,18 @@ button {
   display: grid;
   grid-auto-flow: column; /* Pone los elementos en fila */
   gap: 10px;
+  
 }
+
+.tarjeta {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+    background: #f9f9f9;
+}
+
 .nuevos_productos {
   display: flex;
   flex-direction: column; /* Acomoda los elementos en columna */
@@ -341,6 +352,12 @@ hr {
 }
 /* <-----------------------------------------------------------> */
 /*<------------------seccion de top ventas------------->*/
+.producto-imagen {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+    height: 200px; /* Altura fija para todas las imágenes */
+    object-fit: contain; /* Recorta la imagen manteniendo la proporción */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+}
 .tarjetas {
   display: grid;
   grid-auto-flow: column; /* Pone los elementos en fila */

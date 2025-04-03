@@ -10,4 +10,10 @@ Create table clientes(
 
 );
 
-
+Create table productos(
+    id int primary key auto_increment,
+    imagen longblob,
+    nombre varchar (255),
+    precio varchar (255), 
+    descripcion varchar(255),
+)
