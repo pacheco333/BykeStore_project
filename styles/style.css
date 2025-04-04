@@ -269,10 +269,10 @@ h1 {
   font-size: 56px;
   font-weight: bold;
 }
-p {
+/* p {
   margin: 10px 0;
   font-size: 16px;
-}
+} */
 button {
   background: white;
   color: black;
@@ -306,21 +306,20 @@ button {
   height: 120px;
 }
 /*<------------------seccion de nuevos productos------------->*/
-.tarjetas {
+/* .tarjetas {
   display: grid;
-  grid-auto-flow: column; /* Pone los elementos en fila */
+  grid-auto-flow: column; Pone los elementos en fila
   gap: 10px;
-  
-}
+} */
 
-.tarjeta {
-    border: 1px solid #ccc;
-    padding: 15px;
-    width: 200px;
-    text-align: center;
-    border-radius: 10px;
-    background: #f9f9f9;
-}
+/* .tarjeta {
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: 200px;
+  text-align: center;
+  border-radius: 10px;
+  background: #f9f9f9;
+} */
 
 .nuevos_productos {
   display: flex;
@@ -331,16 +330,16 @@ button {
   font-size: 40px;
   margin: 50px 0 50px 0;
 }
-.productos {
+/* .productos {
   justify-content: space-around;
   flex-wrap: wrap;
-}
+} */
 
-.nuevos_productos button {
+/* .nuevos_productos button {
   margin: 40px 0 40px 0;
   padding: 15px 50px 15px 50px;
   border: 1px solid #d1d1d1;
-}
+} */
 
 hr {
   max-width: 100%;
@@ -352,59 +351,128 @@ hr {
 }
 /* <-----------------------------------------------------------> */
 /*<------------------seccion de top ventas------------->*/
-.producto-imagen {
-    width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
-    height: 200px; /* Altura fija para todas las imágenes */
-    object-fit: contain; /* Recorta la imagen manteniendo la proporción */
-    border-radius: 8px; /* Bordes redondeados opcionales */
-}
-.tarjetas {
+.contenedor_productos {
   display: grid;
-  grid-auto-flow: column; /* Pone los elementos en fila */
+  grid-template-columns: repeat(4, 2fr);
+  gap: 1rem;
+}
+
+.producto-imagen {
+  max-width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+  /* height: 200px; Altura fija para todas las imágenes
+  object-fit: contain; Recorta la imagen manteniendo la proporción */
+  border-radius: 1rem; /* Bordes redondeados opcionales */
+}
+
+/* .tarjetas {
+  display: grid;
+  grid-auto-flow: column; Pone los elementos en fila
   gap: 20px;
-}
-.top_ventas {
-  display: flex;
-  flex-direction: column; /* Acomoda los elementos en columna */
-  align-items: center; /* Centra horizontalmente */
-}
-.top_ventas h2 {
-  font-size: 40px;
-  margin: 50px 0 50px 0;
-}
+} */
 
-.imagen_bicicleta {
-  max-width: 100%;
-  border-radius: 1rem;
-}
-.productos {
-  width: 450px;
-  justify-content: space-around;
-  flex-wrap: wrap;
+.tarjeta {
+  border: 2px solid #f0f0f0;
+  /* padding: 15px; */
+  width: 400px;
+  /* s */
+  border-radius: 10px;
   transition: all 0.3s ease;
-  margin: 10px;
+  margin: 1rem;
 }
 
-.productos h3 {
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
-
-.precio {
-  padding-left: 10px;
-  padding-bottom: 10px;
-}
-.productos:hover {
+.tarjeta:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
   background-color: #f0f0f0;
   border-radius: 10px;
 }
-.top_ventas button {
+
+.top_ventas {
+  display: flex;
+  flex-direction: column; /* Acomoda los elementos en columna */
+  align-items: center; /* Centra horizontalmente */
+}
+
+.top_ventas h2 {
+  font-size: 40px;
+  margin: 50px 0 50px 0;
+}
+
+.titulo_producto {
+  font-size: 30px;
+  padding-left: 10px;
+}
+
+.precio_producto {
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.precio_producto {
+  /* padding-bottom: 10px; */
+}
+
+/* .info_producto {
+  width: 40%;
+} */
+
+.descripcion_producto {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.boton {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.boton_enviar {
+  background-color: black;
+  border: 2px solid black;
+  width: 80%;
+  color: white;
+}
+
+.boton_enviar:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+  color: black;
+}
+
+/* .imagen_bicicleta {
+  max-width: 100%;
+  border-radius: 1rem;
+} */
+/* .productos {
+  width: 450px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  transition: all 0.3s ease;
+  margin: 10px;
+} */
+
+/* .productos h3 {
+  padding-left: 10px;
+  padding-bottom: 10px;
+} */
+
+/* .precio {
+  padding-left: 10px;
+  padding-bottom: 10px;
+} */
+/* .productos:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+  border-radius: 10px;
+} */
+/* .top_ventas button {
   margin: 40px 0 40px 0;
   padding: 15px 50px 15px 50px;
   border: 1px solid #d1d1d1;
-}
+} */
 /* <-----------------------------------------------------------> */
 /*<------------------seccion de collage------------->*/
 .collage {
