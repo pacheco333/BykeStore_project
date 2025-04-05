@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 const app = express();
+const multer = require("multer");
 
 app.use(express.json());
 app.use(cors());
@@ -142,6 +143,18 @@ app.delete('/api/:tabla/:id', async (req, res) => {
     } catch (error) {
         res.status(500).send(error);
     }
+});
+
+// Importar rutas de productos
+const productosRoutes = require('./productos');
+app.use('/productos', productosRoutes);
+
+// Mantén el CRUD general para otras tablas
+app.get('/api/:tabla', async (req, res) => {
+    conexion.query(`SELECT * FROM ${req.params.tabla}`, (err, resultados) => {
+        if (err) return res.status(500).send(err);
+        res.json(resultados);
+    });
 });
 
 // Se realiza o no se realiza la conexión en el puerto configurado 
