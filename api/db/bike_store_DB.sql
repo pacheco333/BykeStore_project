@@ -15,5 +15,5 @@ Create table productos(
     imagen longblob,
     nombre varchar (255),
     precio varchar (255), 
-    descripcion varchar(255),
-)
+    descripcion varchar(255)
+);

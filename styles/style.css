@@ -352,7 +352,7 @@ hr {
 /* <-----------------------------------------------------------> */
 /*<------------------seccion de top ventas------------->*/
 .contenedor_productos {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(4, 2fr);
   gap: 1rem;
 }
@@ -378,6 +378,13 @@ hr {
   border-radius: 10px;
   transition: all 0.3s ease;
   margin: 1rem;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 1rem;
+  
 }
 
 .tarjeta:hover {
