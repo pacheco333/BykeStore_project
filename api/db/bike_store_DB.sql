@@ -6,8 +6,12 @@ Create table clientes(
     apellido varchar (255),
     correo varchar (255) UNIQUE,
     telefono varchar (15),
-    contraseña varchar (255)
+    contrasena varchar (255)
 
 );
 
+alter table clientes
+change column contraseña contrasena varchar(255);
 
+
+select * from clientes;
