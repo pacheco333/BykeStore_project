@@ -63,32 +63,27 @@
 
         <div class="producto">
             <div class="galeria">
-                <div class="img_izquierda">
-                    <img src="/img/ANTHEM ADVANCED.png" alt="Vista lateral">
-                    <img src="/img/Especificaciones1.png" alt="Vista trasera">
-                    <img src="/img/especificaciones2.png" alt="Manillar">
-                </div>
-                <img src="/img/bicicleta1.png" alt="Bicicleta principal" class="principal_imagen">
+              <div class="img_izquierda">
+                <img id="vista1" alt="Vista lateral">
+                <img id="vista2" alt="Vista trasera">
+                <img id="vista3" alt="Manillar">
+              </div>
+              <img id="imagenPrincipal" alt="Bicicleta principal" class="principal_imagen">
             </div>
-
+          
             <div class="detalles">
-                <h1>Anthem Advanced Pro 29 1 2023</h1>
-                <p class="precio">$260</p>
-                <p class="descripcion">
-                    Esta máquina XC nivel Copa del Mundo combina la suspensión trasera FlexPoint Pro con un cuadro
-                    completamente de carbono superligero y geometría específica de competición. Es el arma definitiva
-                    para terrenos técnicos cross-country.
-                </p>
-
-                <div class="cantidad">
-                    <button class="cant-btn">-</button>
-                    <span class="cant">1</span>
-                    <button class="cant-btn">+</button>
-                    <button class="add_carrito">Añadir a carrito</button>
-                </div>
-
+              <h1 id="nombreProducto">Cargando...</h1>
+              <p class="precio" id="precioProducto">$...</p>
+              <p class="descripcion" id="descripcionProducto">...</p>
+          
+              <div class="cantidad">
+                <button class="cant-btn">-</button>
+                <span class="cant">1</span>
+                <button class="cant-btn">+</button>
+                <button class="add_carrito">Añadir a carrito</button>
+              </div>
             </div>
-        </div>
+          </div>
 
         <div class="mas_opciones">
             <h1>También te podría gustar</h1>
@@ -205,7 +200,7 @@
           </div>
         </footer>
 
-
+<script src="/javascript/detalle.js"></script>
 </body>
 
 </html>

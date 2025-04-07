@@ -10,8 +10,18 @@ Create table clientes(
 
 );
 
+<<<<<<< HEAD
 alter table clientes
 change column contraseña contrasena varchar(255);
 
 
 select * from clientes;
+=======
+Create table productos(
+    id int primary key auto_increment,
+    imagen longblob,
+    nombre varchar (255),
+    precio varchar (255), 
+    descripcion varchar(255)
+);
+>>>>>>> origin/daniel
