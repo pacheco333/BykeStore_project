@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/detalle.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
     <title>Detalle del producto</title>
 </head>
 
@@ -18,41 +18,38 @@
     </header>
 
     <nav class="navbar">
-        <img src="/img/logo.png" alt="Logo" class="logo-principal">
+      <a href="index.html"><img src="/img/logo.png" alt="Logo" class="logo-principal" /></a>
 
-        <div class="nav-container">
-            <ul class="nav-links">
-                <li class="menu-desplegable"><a href="#Bicicleta">Bicicletas</a>
-                    <div class="menu-desplegable-contenido">
-                        <a href="#bicicleta-1">Ruta</a>
-                        <a href="#bicicleta-2">Montaña</a>
-                        <a href="#bicicleta-3">Bicicleta3</a>
-                    </div>
-                </li>
-                <li><a href="#Indumentaria">Indumentaria</a></li>
-                <li><a href="#Accesorios">Accesorios</a></li>
-                <li><a href="#Contactanos">Contáctanos</a></li>
-                <li><a href="#Quienes_somos"></a>Quiénes somos</li>
-            </ul>
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="bicicletas.html">Bicicletas</a></li>
+            <li><a href="indumentaria.html">Indumentaria</a></li>
+            <li><a href="accesorios.html">Accesorios</a></li>
+            <li><a href="repuestos.html">Repuestos</a></li>
+        </ul>
 
-            <div class="buscar-contenedor">
-                <input type="text" placeholder=" Buscar productos..." class="buscar-input">
-            </div>
-
-            <!-- Iconos -->
-            <div class="iconos-container">
-                <div class="logos-sec">
-                    <a href="carrito.html">
-                        <img src="/img/carrito.png" alt="carrito">
-                    </a>
-                </div>
-                <div class="logos-sec">
-                    <a href="login.html">
-                        <img src="/img/avatar.png" alt="login">
-                    </a>
-                </div>
-            </div>
+        <div class="buscar-contenedor">
+          <input
+            type="text"
+            placeholder=" Buscar productos..."
+            class="buscar-input"
+          />
         </div>
+
+        <!-- Iconos -->
+        <div class="iconos-container">
+          <div class="logo_carrito">
+            <a href="carrito.html">
+              <img src="/img/carrito.png" alt="carrito" />
+            </a>
+          </div>
+          <div class="logos_login">
+            <a href="login.html">
+              <img src="/img/avatar.png" alt="login" />
+            </a>
+          </div>
+        </div>
+      </div>
     </nav>
 
 
@@ -73,8 +70,8 @@
           
             <div class="detalles">
               <h1 id="nombreProducto">Cargando...</h1>
-              <p class="precio" id="precioProducto">$...</p>
-              <p class="descripcion" id="descripcionProducto">...</p>
+              <p class="precio" id="precioProducto"></p>
+              <p class="descripcion" id="descripcionProducto"></p>
           
               <div class="cantidad">
                 <button class="cant-btn">-</button>

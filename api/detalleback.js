@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const mysql = require('mysql2');
+const params = new URLSearchParams(window.location.search);
+const productoId = params.get('id');
 
 const app = express();
 const PORT = 3000;
@@ -10,7 +12,7 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'html')));
 
-// ✅ Conexión a MySQL
+//Conexión a MySQL
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',     
@@ -18,7 +20,7 @@ const connection = mysql.createConnection({
   database: 'bike_store'
 });
 
-// ✅ Ruta para obtener un producto por ID
+//Ruta para obtener un producto por ID
 app.get('/api/productos/:id', (req, res) => {
   const id = req.params.id;
   const sql = 'SELECT * FROM productos WHERE id = ?';
@@ -35,9 +37,11 @@ app.get('/api/productos/:id', (req, res) => {
 
     const producto = results[0];
 
-    // Convertir imagen a base64 si existe
-    if (producto.imagen) {
-      producto.imagen = Buffer.from(producto.imagen).toString('base64');
+    // Convertir buffer en base64 correctamente
+    if (producto.imagen && producto.imagen instanceof Buffer) {
+      producto.imagen = producto.imagen.toString('base64');
+    } else if (producto.imagen && producto.imagen.data) {
+      producto.imagen = Buffer.from(producto.imagen.data).toString('base64');
     }
 
     res.json(producto);

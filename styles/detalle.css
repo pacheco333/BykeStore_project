@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "ABeeZee";
+  font-family: "Baloo Chettan 2", sans-serif;
   line-height: 1.6;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 a {
-  color: #7e18dd;
+  color: #555555;
 }
 
 .logo-principal {
@@ -119,9 +119,8 @@ a {
   height: 45px;
   width: 100%;
   max-width: 600px;
-  font-family: "ABeeZee";
   font-size: 16px;
-  background-image: url(/img/buscar.png);
+  background-image: url("/img/buscar.png");
   background-repeat: no-repeat;
   background-position: 10px center;
   padding-left: 45px;
@@ -142,16 +141,17 @@ a {
   margin-left: auto; /* Empuja los iconos hacia la derecha */
 }
 
-.logos-sec {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  cursor: pointer;
+.logo_carrito:hover {
+  background-size: 100%;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+  transform: rotate(10deg);
 }
 
-.logos-sec img {
-  max-height: 30px;
-  width: auto;
+.logos_login:hover {
+  background-size: 100%;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
 }
 
 /* SIGUIENTE */
