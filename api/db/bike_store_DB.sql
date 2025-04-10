@@ -23,5 +23,8 @@ Create table productos(
     nombre varchar (255),
     precio varchar (255), 
     descripcion varchar(255)
+    entrada INT DEFAULT 0,
+    salida INT DEFAULT 0,
+    saldo INT GENERATED ALWAYS AS (entrada - salida) STORED
 );
 >>>>>>> origin/daniel

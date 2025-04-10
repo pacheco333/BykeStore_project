@@ -1,0 +1,91 @@
+body{
+    background-color: #f5f7fa;
+}
+.filtro-fechas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+    font-family: Arial, sans-serif;
+  }
+  .filtro-fechas input,
+  .filtro-fechas button {
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
+  
+.tablas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 50px;
+    background-color: #f5f7fa;
+    align-items: stretch;
+  }
+  
+  .arrow img {
+    position: fixed;
+    top: 10px; /* Ajusta según sea necesario */
+    left: 10px; /* Ajusta según sea necesario */
+    cursor: pointer;
+    z-index: 1000; /* Asegúrate de que la flecha esté encima de otros elementos */
+  }
+  
+  /* Aplica mismo tamaño a cada columna */
+  .todo, .mas {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Títulos */
+  .ventas-title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #000;
+  }
+  
+  /* Tablas */
+  .ventas-table {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    min-height: 450px; /* para que ambas tablas tengan la misma altura */
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    border: 2px solid rgb(75, 75, 75);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.571);
+}
+
+  
+  /* Celdas */
+  .ventas-table th,
+  .ventas-table td {
+    border: 1px solid rgb(75, 75, 75);
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Esquinas redondeadas */
+  .ventas-table th:first-child {
+    border-top-left-radius: 10px;
+  }
+  .ventas-table th:last-child {
+    border-top-right-radius: 10px;
+  }
+  .ventas-table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+  }
+  .ventas-table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+  }
+  

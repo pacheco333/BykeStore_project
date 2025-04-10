@@ -9,25 +9,57 @@
     <title>Administrar Productos</title>
 </head>
 <body>
-     <h1>Panel de Administración</h1>
-    <form id="product-form">
-    <label for="product-name">Nombre:</label>
-    <input type="text" id="product-name" required>
 
-    <label for="product-price">Precio:</label>
-    <input type="text" id="product-price" required>
+  <body>
 
-    <label for="product-desc">Descripción:</label> <!-- 🔹 Agregado este campo -->
-    <input type="text" id="product-desc" required>
+    <!-- ✅ HEADER -->
+    <header class="top-bar">
+      <div class="buttons">
+        <a href="#"><button class="notif-button">Notificación</button></a>
+        <a href="estadisticas.html"><button class="stats-button">Estadísticas</button></a>
+      </div>
+      <h1 class="main-title">Panel de Administración</h1>
+    </header>
+  
+    <!-- ✅ FORMULARIO PARA AGREGAR PRODUCTO -->
+    <div class="container">
+      <h2 class="section-title">Agregar Producto</h2>
+      <form id="product-form" class="product-form">
+        <label for="product-name">Nombre:</label>
+        <input type="text" id="product-name" required>
+  
+        <label for="product-price">Precio:</label>
+        <input type="text" id="product-price" required>
+  
+        <label for="product-entrada">Entrada:</label>
+        <input type="number" id="product-entrada" required>
+  
+        <label for="product-desc">Descripción:</label>
+        <textarea id="product-desc" required></textarea>
+        
+        <label for="product-salida">Salida:</label>
+        <input type="number" id="product-salida" disabled>
 
-    <label for="product-image">Imagen:</label>
-    <input type="file" id="product-image" accept="image/*" required>
-
-    <button type="submit">Agregar Producto</button>
-</form>
-
-    <h2>Productos Disponibles</h2>
-    <div id="product-container" class="product-container"></div>
+        <label for="product-saldo">Saldo:</label>
+        <input type="number" id="product-saldo" disabled>
+  
+        <label for="product-image">Imagen:</label>
+        <input type="file" id="product-image" accept="image/*">
+  
+        <button type="submit" class="submit-button">Agregar Producto</button>
+      </form>
+    </div>
+  
+    <!-- ✅ LISTA DE PRODUCTOS -->
+    <div class="container productos">
+      <h2 class="sub-title">Productos Disponibles</h2>
+      <div id="lista-productos" class="product-container">
+        <!-- Aquí se insertarán las cards de productos dinámicamente -->
+      </div>
+    </div>
+  
     <script src="/javascript/script.js"></script>
-</body>
+  </body>
+</html>
+
 </html>

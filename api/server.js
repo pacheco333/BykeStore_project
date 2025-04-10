@@ -15,7 +15,7 @@ app.use(cors());
 const conexion = mysql.createConnection({ 
     host: 'localhost',
     user: 'root',
-    password: 'root',
+    password: 'julian28257',
     database: 'bike_store'
 });
 
@@ -321,6 +321,35 @@ app.get('/api/:tabla', async (req, res) => {
         res.json(resultados);
     });
 });
+
+// Obtener un producto por ID (para mostrar en el formulario)
+router.get('/productos/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = `
+      SELECT id, nombre, precio, entrada, salida, descripcion, imagen,
+             (entrada - salida) AS saldo
+      FROM productos WHERE id = ?
+    `;
+  
+    connection.query(sql, [id], (err, result) => {
+      if (err) return res.status(500).json({ error: err });
+      if (result.length === 0) return res.status(404).json({ error: "Producto no encontrado" });
+  
+      res.json(result[0]);
+    });
+  });
+  
+  // Editar un producto existente (si usas modo edición)
+  app.put('/productos/:id', (req, res) => {
+    const { id } = req.params;
+    const { nombre, precio, entrada, descripcion } = req.body;
+    const sql = 'UPDATE productos SET nombre = ?, precio = ?, entrada = ?,salida = ?, descripcion = ? WHERE id = ?';
+  
+    db.query(sql, [nombre, precio, entrada, descripcion, id], (err, result) => {
+      if (err) return res.status(500).json({ error: 'Error al actualizar producto' });
+      res.json({ mensaje: 'Producto actualizado correctamente' });
+    });
+  });
 
 // Se realiza o no se realiza la conexión en el puerto configurado 
 const puerto = process.env.PUERTO || 3000;

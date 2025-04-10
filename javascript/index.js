@@ -45,20 +45,37 @@ async function cargarProductos() {
 
     productos.forEach((producto, index) => {
       let tarjeta = `
-                    <div class="tarjeta">
-                    <a href="detalle.html?id=${producto.id}">
-                    <img src="data:image/jpeg;base64,${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">
-                        <div class="info_producto">
-                        <h3 class="titulo_producto">${producto.nombre}</h3>
-                        <p class="precio_producto">$ ${producto.precio}</p>
-                        <p class="descripcion_producto">${producto.descripcion}</p>
-                        </div>
-                        <div class = "boton">
-                        <button type="submit" class="boton_enviar">Agregar al carrito</button>
-                            </div>
-                            </a>
-                    </div>
-                    `;
+        <div class="tarjeta">
+          <a href="detalle.html?id=${producto.id}">
+            <div class="imagen-contenedor">
+              <img src="data:image/jpeg;base64,${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">
+            </div>
+            <div class="info_producto">
+              <h3 class="titulo_producto">${producto.nombre}</h3>
+              <p class="precio_producto">$ ${producto.precio}</p>
+              <p class="descripcion_producto">${producto.descripcion}</p>
+            </div>
+            <div class="boton">
+              <button type="submit" class="boton_enviar">Agregar al carrito</button>
+            </div>
+          </a>
+        </div>
+      `;
+      // let tarjeta = `
+      //               <div class="tarjeta">
+      //               <a href="detalle.html?id=${producto.id}">
+      //               <img src="data:image/jpeg;base64,${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">
+      //                   <div class="info_producto">
+      //                   <h3 class="titulo_producto">${producto.nombre}</h3>
+      //                   <p class="precio_producto">$ ${producto.precio}</p>
+      //                   <p class="descripcion_producto">${producto.descripcion}</p>
+      //                   </div>
+      //                   <div class = "boton">
+      //                   <button type="submit" class="boton_enviar">Agregar al carrito</button>
+      //                       </div>
+      //                       </a>
+      //               </div>
+      //               `;
 
       // Los primeros productos se colocan en "Nuevos Productos", los otros en "Top Ventas"
       if (index % 2 === 0) {
