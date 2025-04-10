@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bicicleta</title>
     <link rel="stylesheet" href="/styles/bicicletas.css" />
+    <link rel="stylesheet" href="/styles/styles/carrito/contador.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
@@ -53,8 +54,9 @@
         <!-- Iconos -->
         <div class="iconos-container">
           <div class="logo_carrito">
-            <a href="carrito.html">
-              <img src="/img/carrito.png" alt="carrito" />
+            <a href="carrito.html" class="cart-link">
+              <img src="/img/carrito.png" alt="carrito" class="cart-icon" />
+              <span id="cart-count" class="cart-badge">0</span>
             </a>
           </div>
           <div class="logos_login">
@@ -325,5 +327,6 @@
         <p>BykeStore.com © 2025, todos los derechos reservados</p>
       </div>
     </footer>
+    <script src="/javascript/contadorCarrito.js"></script>
   </body>
 </html>

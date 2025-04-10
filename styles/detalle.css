@@ -145,7 +145,7 @@ a {
   background-size: 100%;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
-  transform: rotate(10deg);
+  /* transform: rotate(10deg); */
 }
 
 .logos_login:hover {
@@ -256,6 +256,25 @@ h1 {
   cursor: pointer;
   border-radius: 25px;
   margin-left: 40px;
+}
+
+.add-to-cart-btn {
+  background: black;
+  color: white;
+  width: 90%;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 25px;
+  border: 1px solid black;
+}
+
+.add-to-cart-btn:hover {
+  background-color: white;
+  color: black;
+  transition: all 0.4s ease-in-out;
 }
 
 .mas_opciones {

@@ -166,7 +166,7 @@ a {
   background-size: 100%;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
-  transform: rotate(10deg);
+  /* transform: rotate(10deg); */
 }
 
 .logos_login:hover {
@@ -348,7 +348,7 @@ section {
   font-size: 35px;
 }
 
-section{
+section {
   margin-left: 4%; /* para separar el filtro de los productos y el titulo */
 }
 
@@ -481,7 +481,6 @@ section{
   width: 250px;
   /* background-color: #ccc; */
   text-align: justify;
-  
 }
 
 .seccion h4 {

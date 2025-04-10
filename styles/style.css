@@ -164,7 +164,7 @@ a {
   background-size: 100%;
   transform: scale(1.1);
   transition: all 0.3s ease-in-out;
-  transform: rotate(10deg);
+  /* transform: rotate(10deg); */
 }
 
 .logos_login:hover {
@@ -283,6 +283,26 @@ button {
   margin-top: 10px;
   border-radius: 25px;
 }
+
+.add-to-cart-btn {
+  background: black;
+  color: white;
+  width: 90%;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 25px;
+  border: 1px solid black;
+}
+
+.add-to-cart-btn:hover {
+  background-color: white;
+  color: black;
+  transition: all 0.4s ease-in-out;
+}
+
 .stats {
   position: absolute;
   bottom: 120px;
@@ -381,10 +401,9 @@ hr {
 }
 
 .tarjetas {
-    display: grid;
-    grid-template-columns: repeat(4, 2fr);
-    gap: 1rem;
-  
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  gap: 1rem;
 }
 
 .tarjeta:hover {
@@ -657,7 +676,9 @@ hr {
 
 .suscribirse:hover {
   color: white;
-  background-color: #000000; /* Color al pasar el mouse */
+  background-color: #000000;
+  transition: all 0.4s ease-in-out;
+  /* Color al pasar el mouse */
 }
 
 .derechos_reservados {
