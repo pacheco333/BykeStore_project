@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/detalle.css">
     <link rel="stylesheet" href="/styles/styles/carrito/contador.css">
+    <link rel="stylesheet" href="/styles/styles/detalles/productosSugeridos.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
     <title>Detalle del producto</title>
 </head>
@@ -30,11 +31,15 @@
         </ul>
 
         <div class="buscar-contenedor">
-          <input
-            type="text"
-            placeholder=" Buscar productos..."
-            class="buscar-input"
-          />
+          <form id="form-busqueda">
+            <input
+              type="text"
+              id="buscar-input"
+              class="buscar-input"
+              placeholder="Buscar productos..."
+            />
+          </form>
+          
         </div>
 
         <!-- Iconos -->
@@ -88,30 +93,6 @@
         <div class="mas_opciones">
             <h1>También te podría gustar</h1>
             <div class="tarjetas">
-                <div class="mas_ciclas">
-                    <img src="/img/bicicleta1.png" alt="">
-                    <h3>Bicicleta Optimus Tucana 12 velocidades</h3>
-                    <div>$1.000.000</div>
-                </div>
-
-                <div class="mas_ciclas">
-                    <img src="/img/bicicleta1.png" alt="">
-                    <h3>Bicicleta Roca Alpes Ruta Alimunio 9v</h3>
-                    <div>$1.900.000</div>
-                </div>
-
-                <div class="mas_ciclas">
-                    <img src="/img/bicicleta1.png" alt="">
-                    <h3>Bicicleta Optimus Tucana 12 velocidades</h3>
-                    <div>$1.900.000</div>
-                </div>
-
-                <div class="mas_ciclas">
-                    <img src="/img/bicicleta1.png" alt="">
-                    <h3>Bicicleta Optimus Tucana 12 velocidades</h3>
-                    <div >$1.900.000</div>
-                </div>
-
             </div>
         </div>
 
@@ -202,6 +183,8 @@
 
 <script src="/javascript/detalle.js"></script>
 <script src="/javascript/contadorCarrito.js"></script>
+<script src="/javascript/navbar.js"></script>
+
 </body>
 
 </html>

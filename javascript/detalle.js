@@ -93,14 +93,16 @@ function cargarProductosSugeridos(productoActualId) {
     .then((res) => res.json())
     .then((productos) => {
       const contenedor = document.querySelector(".tarjetas");
+      contenedor.innerHTML = "";
 
-      // Filtra el producto actual y toma hasta 4 sugerencias
       const sugerencias = productos
         .filter((p) => p.id != productoActualId)
         .slice(0, 4);
 
       sugerencias.forEach((producto) => {
         let imagenBase64 = "";
+
+        // ✅ Convertir el buffer en base64 si existe
         if (producto.imagen && producto.imagen.data) {
           const byteArray = new Uint8Array(producto.imagen.data);
           imagenBase64 = btoa(
@@ -111,22 +113,22 @@ function cargarProductosSugeridos(productoActualId) {
           );
         }
 
-        const imagenSrc = `data:image/png;base64,${imagenBase64}`;
+        const imagenSrc = imagenBase64
+          ? `data:image/png;base64,${imagenBase64}`
+          : "/img/placeholder.png"; // fallback
 
         const tarjeta = document.createElement("div");
-        tarjeta.classList.add("mas_ciclas");
+        tarjeta.classList.add("tarjeta");
 
         tarjeta.innerHTML = `
-          <div class="tarjeta">
-                    <a href="detalle.html?id=${producto.id}">
-                    <img src="data:image/jpeg;base64,${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">
-                        <div class="info_producto">
-                        <h3 class="titulo_producto">${producto.nombre}</h3>
-                        <p class="precio_producto">$ ${producto.precio}</p>
-                        <p class="descripcion_producto">${producto.descripcion}</p>
-                        </div>
-                        </a>   
-                    </div>
+          <a href="detalle.html?id=${producto.id}">
+            <img src="${imagenSrc}" alt="${producto.nombre}" class="producto-imagen">
+            <div class="info_producto">
+              <h3 class="titulo_producto">${producto.nombre}</h3>
+              <p class="precio_producto">$ ${producto.precio}</p>
+              <p class="descripcion_producto">${producto.descripcion}</p>
+            </div>
+          </a>
         `;
 
         contenedor.appendChild(tarjeta);
