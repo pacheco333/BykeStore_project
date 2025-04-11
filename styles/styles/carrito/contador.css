@@ -1,0 +1,33 @@
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff3b3b;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 4px 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  transition: transform 0.2s ease-in-out;
+}
+
+.cart-link {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-icon {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.cart-link:hover .cart-icon {
+  transform: scale(1.1);
+}
+
+.cart-badge.animate {
+  transform: scale(1.3);
+}
