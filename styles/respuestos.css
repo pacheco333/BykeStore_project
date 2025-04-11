@@ -175,6 +175,76 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
+/* Estilo del saludo */
+.nombre-usuario {
+  font-size: 14px;
+  font-weight: 500;
+  /* margin-bottom: 10px; */
+  color: black;
+}
+
+/* Contenedor para los botones */
+.boton-usuario {
+  /* margin: 5px 0; */
+}
+
+/* Botón general */
+.boton-usuario button {
+  padding: 3px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Botón Panel Admin */
+.btn-admin {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-admin:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Botón Cerrar Sesión */
+.btn-logout {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.btn-logout:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+/* Ajuste de posición del contenedor del usuario */
+#user-info {
+  display: none;
+  text-align: left;
+  margin-left: 10px;       /* separa del ícono de login */
+  margin-right: 15px;      /* lo empuja lejos del carrito */
+  background-color: rgba(0, 0, 0, 0.1); /* opcional: fondo sutil */
+  padding: 8px;
+  border-radius: 8px;
+  color: white;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+/* Opcional: si querés alinear mejor en desktop */
+@media screen and (min-width: 768px) {
+  #login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* alinea los elementos al borde derecho */
+  }
+}
+
 /* .iconos-container:hover {
   /* background-size: 100%; Aumenta el tamaño del icono al hacer hover */
 /* background-size: 100%; */

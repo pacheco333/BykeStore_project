@@ -151,25 +151,74 @@ app.delete("/api/:tabla/:id", async (req, res) => {
   }
 });
 
-app.post("/api/clientes", async (req, res) => {
+// CODIGO MODIFICADO CON LA FUNCION DE AÑADIR ROL USUARIO
+app.post("/api/clientes", (req, res) => {
   const { nombre, apellido, correo, telefono, contrasena } = req.body;
 
-  try {
-      const [existe] = await db.query("SELECT * FROM clientes WHERE correo = ?", [correo]);
+  // Verificación extra por si llega algo vacío
+  if (!nombre || !apellido || !correo || !telefono || !contrasena) {
+    console.warn("❗ Campos faltantes en el registro:", req.body);
+    return res.status(400).json({ message: "Todos los campos son obligatorios." });
+  }
 
-      if (existe.length > 0) {
-        return res.status(400).json({ message: "El correo ya está registrado." });
+  console.log("📩 Datos recibidos para registro:", req.body);
+
+//   // Verificar si el correo ya está registrado
+  conexion.query("SELECT * FROM clientes WHERE correo = ?", [correo], (err, resultado) => {
+    if (err) {
+      console.error("❌ Error al verificar correo:", err);
+      return res.status(500).json({ message: "Error al verificar correo." });
     }
 
-      await db.query("INSERT INTO clientes (nombre, apellido, correo, telefono, contrasena) VALUES (?, ?, ?, ?, ?)", 
-          [nombre, apellido, correo, telefono, contrasena]);
+    if (resultado.length > 0) {
+      return res.status(400).json({ message: "El correo ya está registrado." });
+    }
 
+//     // Inserción del nuevo cliente
+    const query = `
+      INSERT INTO clientes (nombre, apellido, correo, telefono, contrasena, rol_id)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `;
+    const valores = [nombre, apellido, correo, telefono, contrasena, 1]; // rol_id = 1 (usuario)
+
+    conexion.query(query, valores, (error, resultado) => {
+      if (error) {
+        console.error("❌ Error al registrar cliente:", error);
+        return res.status(500).json({ message: "Error al registrar el cliente." });
+      }
+
+      console.log("✅ Cliente registrado correctamente con ID:", resultado.insertId);
       res.status(201).json({ message: "Cliente registrado exitosamente." });
-  } catch (error) {
-      console.error("Error en el servidor:", error);
-      res.status(500).json({ message: "Error en el servidor." });
-  }
+    });
+  });
 });
+
+
+
+// CODIGO SIN MODIFICAR PARA EL ROL ID
+
+// app.post("/api/clientes", async (req, res) => {
+//   const { nombre, apellido, correo, telefono, contrasena } = req.body;
+
+//   try {
+//       const [existe] = await db.query("SELECT * FROM clientes WHERE correo = ?", [correo]);
+
+//       if (existe.length > 0) {
+//         return res.status(400).json({ message: "El correo ya está registrado." });
+//     }
+
+//       await db.query(
+//         "INSERT INTO clientes (nombre, apellido, correo, telefono, contrasena, rol_id) VALUES (?, ?, ?, ?, ?, ?)",
+//         [nombre, apellido, correo, telefono, contrasena, 1] // 1 = rol "usuario"
+//     );
+    
+
+//       res.status(201).json({ message: "Cliente registrado exitosamente." });
+//   } catch (error) {
+//       console.error("Error en el servidor:", error);
+//       res.status(500).json({ message: "Error en el servidor." });
+//   }
+// });
 
 
 // Login de clientes (sin bcrypt)
@@ -198,6 +247,7 @@ app.post("/login", (req, res) => {
         id: cliente.id,
         nombre: cliente.nombre,
         correo: cliente.correo,
+        rol_id: cliente.rol_id
       },
     });
   });
@@ -240,8 +290,6 @@ app.post("/finalizar-compra", async (req, res) => {
 });
 
 
-
-
 // Ruta de productos (ejemplo modular)
 const productosRoutes = require("./productos");
 app.use("/productos", productosRoutes);
@@ -250,4 +298,32 @@ app.use("/productos", productosRoutes);
 const puerto = process.env.PUERTO || 3000;
 app.listen(puerto, () => {
   console.log("Servidor corriendo en el puerto", puerto);
+  
 });
+
+// Cambiar el rol de un cliente (solo accesible para superadmin desde frontend)
+app.put("/api/clientes/:id/rol", (req, res) => {
+  const { id } = req.params;
+  const { rol_id } = req.body;
+
+  if (!rol_id) {
+    return res.status(400).json({ message: "El nuevo rol es requerido." });
+  }
+
+  const query = "UPDATE clientes SET rol_id = ? WHERE id = ?";
+  conexion.query(query, [rol_id, id], (error, resultado) => {
+    if (error) {
+      console.error("Error al cambiar rol:", error);
+      return res.status(500).json({ message: "Error del servidor." });
+    }
+
+    if (resultado.affectedRows === 0) {
+      return res.status(404).json({ message: "Cliente no encontrado." });
+    }
+
+    res.status(200).json({ message: "Rol actualizado correctamente." });
+  });
+});
+
+
+

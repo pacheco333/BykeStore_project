@@ -86,3 +86,40 @@ document.addEventListener("click", (e) => {
     actualizarContadorCarrito();
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+  // Mostrar info del usuario si está logueado
+  if (usuario) {
+    // Ocultar ícono de login
+    const loginLink = document.getElementById("login-link");
+    if (loginLink) loginLink.style.display = "none";
+
+    // Mostrar contenedor de usuario
+    const userInfo = document.getElementById("user-info");
+    if (userInfo) userInfo.style.display = "block";
+
+    // Mostrar nombre del usuario
+    const nombreTexto = document.getElementById("nombre-texto");
+    if (nombreTexto) nombreTexto.textContent = usuario.nombre;
+
+    // Mostrar botón de admin si corresponde
+    if (usuario.rol_id === 2 || usuario.rol_id === 3) {
+      const adminBtn = document.getElementById("admin-btn-container");
+      if (adminBtn) adminBtn.style.display = "block";
+    }
+
+    // Cerrar sesión
+    const cerrarSesion = document.getElementById("cerrar-sesion");
+    if (cerrarSesion) {
+      cerrarSesion.addEventListener("click", () => {
+        localStorage.removeItem("usuario");
+        window.location.href = "index.html";
+      });
+    }
+  }
+});
+
+
+

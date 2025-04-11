@@ -1,5 +1,9 @@
+# Creacion  de la base de datos bike_store
 Create database bike_store;
+# Utilizamos la tabla
 use bike_store;
+
+#Tabla de clientes
 Create table clientes(
 	id int primary key auto_increment,
     nombre varchar (255),
@@ -15,6 +19,8 @@ change column contraseña contrasena varchar(255);
 
 
 select * from clientes;
+
+#Tabla de productos
 Create table productos(
     id int primary key auto_increment,
     imagen longblob,
@@ -26,6 +32,8 @@ Create table productos(
 select * from productos;
 
 select * from compras;
+
+#Tabla de compras
 CREATE TABLE compras (
   id_compras INT AUTO_INCREMENT PRIMARY KEY,
   id_usuarios INT,
@@ -36,7 +44,7 @@ CREATE TABLE compras (
 
 DROP TABLE compra;
 
-
+#tabla de detalle compras o detalle ventas
 CREATE TABLE detalle_venta (
   id_detalle INT AUTO_INCREMENT PRIMARY KEY,
   id_compra INT,
@@ -48,3 +56,39 @@ CREATE TABLE detalle_venta (
 );
 
 select * from detalle_venta;
+
+
+#tabla de roles
+CREATE TABLE roles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+);
+
+INSERT INTO roles (nombre) VALUES 
+('usuario'),
+('administrador'),
+('superadmin');
+
+SELECT * FROM clientes;
+SELECT * FROM roles;
+
+ALTER TABLE clientes ADD COLUMN rol_id INT DEFAULT 1;
+
+ALTER TABLE clientes
+ADD CONSTRAINT fk_rol_cliente
+FOREIGN KEY (rol_id) REFERENCES roles(id);
+
+SELECT * FROM clientes;
+
+SELECT * FROM roles;
+
+DESCRIBE clientes;
+
+ALTER TABLE clientes
+CHANGE COLUMN contraseña contrasena VARCHAR(255);
+
+
+
+
+
+

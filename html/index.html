@@ -59,11 +59,24 @@
               <span id="cart-count" class="cart-badge">0</span>
             </a>
           </div>
-          <div class="logos_login">
-            <a href="login.html">
+          <div class="logos_login" id="login-container">
+            <a href="login.html" id="login-link">
               <img src="/img/avatar.png" alt="login" />
             </a>
-          </div>
+            <div id="user-info" style="display: none; text-align: center;">
+              <p id="nombre-usuario" class="nombre-usuario">Hola, <span id="nombre-texto"></span></p>
+            
+              <div class="boton-usuario">
+                <a href="administrarProductos.html" id="admin-btn-container" style="display: none;">
+                  <button class="btn-admin">Panel de Administración</button>
+                </a>
+              </div>
+            
+              <div class="boton-usuario">
+                <button id="cerrar-sesion" class="btn-logout">Cerrar sesión</button>
+              </div>
+            </div>            
+          </div>          
         </div>
       </div>
     </nav>
@@ -257,5 +270,6 @@
     <script src="/javascript/index.js"></script>
     <script src="/javascript/contadorCarrito.js"></script>
     <script src="/javascript/navbar.js"></script>
+    <script src="/javascript/getUsuarioActivo.js"></script>
   </body>
 </html>
