@@ -22,3 +22,29 @@ Create table productos(
     precio varchar (255), 
     descripcion varchar(255)
 );
+
+select * from productos;
+
+select * from compras;
+CREATE TABLE compras (
+  id_compras INT AUTO_INCREMENT PRIMARY KEY,
+  id_usuarios INT,
+  total_compra DECIMAL(10, 2),
+  fecha_compra DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_usuarios) REFERENCES clientes(id)
+);
+
+DROP TABLE compra;
+
+
+CREATE TABLE detalle_venta (
+  id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+  id_compra INT,
+  id_producto INT,
+  cantidad INT,
+  precio DECIMAL(10, 2),
+  FOREIGN KEY (id_compra) REFERENCES compras(id_compras),
+  FOREIGN KEY (id_producto) REFERENCES productos(id)
+);
+
+select * from detalle_venta;
