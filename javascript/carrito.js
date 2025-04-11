@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
   let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const cartContainer = document.querySelector(".cart");
   const resumen = document.querySelector(".summary");
@@ -53,6 +53,18 @@ document.addEventListener("DOMContentLoaded", () => {
         <button class="pagar">Pagar</button>
       `;
   }
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("pagar")) {
+      // Validación adicional si quieres
+      if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+        return;
+      }
+      
+      // Redirigir a la página de dirección
+      window.location.href = "direccion.html";
+    }
+  });
 
   renderCarrito();
 

@@ -5,16 +5,7 @@
   font-family: "Baloo Chettan 2", sans-serif;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-input,
-textarea {
+h1,h2,h3,h4,h5,h6,p,a,input,textarea {
   margin: 0;
 }
 
@@ -173,39 +164,6 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-/* .iconos-container:hover {
-  /* background-size: 100%; Aumenta el tamaño del icono al hacer hover */
-/* background-size: 100%; */
-/* transform: scale(1.1); Hace que el crezca un poco */
-/* transform: scale(1.1); */
-/* filter: brightness(1.2); Aumenta el brillo para hacer efecto de resaltado */
-/* filter: brightness(1.5); */
-/* transition: all 0.3s ease-in-out;
-} */
-
-/* .logos-sec {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  cursor: pointer;
-}
-
-.logos-sec img {
-  max-height: 30px;
-  width: auto;
-} */
-
-/* BARRA DE NAVEGACION */
-
-/* .contenedor_navegacion {
-  width: 80%;
-  margin: auto;
-  background: white;
-  padding: 20px;
-} */
-
-/* CONFIGURACION COLUMNAS */
-
 .division {
   display: grid;
   grid-template-columns: 1fr 5fr;
@@ -325,21 +283,6 @@ button {
   background-color: #000000;
   height: 120px;
 }
-/*<------------------seccion de nuevos productos------------->*/
-/* .tarjetas {
-  display: grid;
-  grid-auto-flow: column; Pone los elementos en fila
-  gap: 10px;
-} */
-
-/* .tarjeta {
-  border: 1px solid #ccc;
-  padding: 15px;
-  width: 200px;
-  text-align: center;
-  border-radius: 10px;
-  background: #f9f9f9;
-} */
 
 .nuevos_productos {
   display: flex;
@@ -350,16 +293,6 @@ button {
   font-size: 40px;
   margin: 50px 0 50px 0;
 }
-/* .productos {
-  justify-content: space-around;
-  flex-wrap: wrap;
-} */
-
-/* .nuevos_productos button {
-  margin: 40px 0 40px 0;
-  padding: 15px 50px 15px 50px;
-  border: 1px solid #d1d1d1;
-} */
 
 hr {
   max-width: 100%;
@@ -369,8 +302,7 @@ hr {
   background-color: #d1d1d1;
   margin: 20px auto; /* Espaciado arriba y abajo */
 }
-/* <-----------------------------------------------------------> */
-/*<------------------seccion de top ventas------------->*/
+
 .contenedor_productos {
   /* display: grid; */
   grid-template-columns: repeat(4, 2fr);
@@ -379,16 +311,9 @@ hr {
 
 .producto-imagen {
   max-width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
-  /* height: 200px; Altura fija para todas las imágenes
-  object-fit: contain; Recorta la imagen manteniendo la proporción */
   border-radius: 1rem; /* Bordes redondeados opcionales */
 }
 
-/* .tarjetas {
-  display: grid;
-  grid-auto-flow: column; Pone los elementos en fila
-  gap: 20px;
-} */
 
 .tarjeta {
   border: 2px solid #f0f0f0;
@@ -467,40 +392,6 @@ hr {
   color: black;
 }
 
-/* .imagen_bicicleta {
-  max-width: 100%;
-  border-radius: 1rem;
-} */
-/* .productos {
-  width: 450px;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  transition: all 0.3s ease;
-  margin: 10px;
-} */
-
-/* .productos h3 {
-  padding-left: 10px;
-  padding-bottom: 10px;
-} */
-
-/* .precio {
-  padding-left: 10px;
-  padding-bottom: 10px;
-} */
-/* .productos:hover {
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
-  background-color: #f0f0f0;
-  border-radius: 10px;
-} */
-/* .top_ventas button {
-  margin: 40px 0 40px 0;
-  padding: 15px 50px 15px 50px;
-  border: 1px solid #d1d1d1;
-} */
-/* <-----------------------------------------------------------> */
-/*<------------------seccion de collage------------->*/
 .collage {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -686,6 +577,9 @@ hr {
   color: gray;
 }
 
+/* ESTILOS RESPONSIVOS PARA BIKE STORE */
+
+/* Base responsiva ya existente */
 @media screen and (max-width: 576px) {
   .header p {
     font-size: 14px;
@@ -704,11 +598,11 @@ hr {
     height: 40px;
   }
 
-  /* Asegurar que los iconos permanezcan juntos */
   .iconos-container {
     gap: 10px;
   }
 }
+
 @media screen and (max-width: 480px) {
   .header {
     height: auto;
@@ -721,5 +615,338 @@ hr {
 
   .logo-principal {
     height: 50px;
+  }
+}
+
+/* REGLAS RESPONSIVAS EXTENDIDAS */
+
+/* TABLETS (768px y menos) */
+@media screen and (max-width: 768px) {
+  /* NAVBAR */
+  .navbar {
+    height: auto;
+    padding: 10px 3%;
+    flex-direction: column;
+  }
+  
+  .nav-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .buscar-contenedor {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
+  .iconos-container {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    height: 80vh;
+    padding-left: 30px;
+  }
+  
+  .content h1 {
+    font-size: 42px;
+  }
+  
+  .stats {
+    flex-wrap: wrap;
+    bottom: 70px;
+    gap: 30px;
+  }
+  
+  .stats h2, .stats p {
+    font-size: 20px;
+  }
+
+  /* PRODUCTOS */
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .tarjeta {
+    width: 100%;
+  }
+  
+  .titulo_producto {
+    font-size: 24px;
+  }
+
+  /* COLLAGE */
+  .collage {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 80px auto 20px auto;
+  }
+  
+  .ruta, .montaña, .urbanas, .pista {
+    grid-column: span 1;
+  }
+  
+  .ruta, .pista {
+    grid-column: span 2;
+  }
+
+  /* FOOTER */
+  .promocional {
+    width: 80%;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .promocional h1 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .enviar_promocion {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contenedor_seccion {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .seccion {
+    width: 100%;
+  }
+}
+
+/* MÓVILES MEDIANOS (576px y menos) */
+@media screen and (max-width: 576px) {
+  /* NAVBAR */
+  .header a {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .nav-links li {
+    margin: 8px 0;
+  }
+  
+  /* HERO SECTION */
+  .hero {
+    height: 70vh;
+    padding-left: 20px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content h1 {
+    font-size: 36px;
+  }
+  
+  .content p {
+    font-size: 16px;
+  }
+  
+  .stats {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+  }
+
+  /* PRODUCTOS */
+  .nuevos_productos h2, .top_ventas h2 {
+    font-size: 28px;
+    margin: 30px 0;
+  }
+  
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+  
+  .tarjeta {
+    margin: 0.5rem;
+  }
+
+  /* COLLAGE */
+  .collage {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    margin: 60px auto 20px auto;
+  }
+  
+  .collage h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .ruta, .montaña, .urbanas, .pista {
+    grid-column: 1;
+  }
+  
+  .box {
+    height: 180px;
+  }
+  
+  .box span {
+    font-size: 24px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 15% 5% 5% 5%;
+  }
+  
+  .promocional {
+    width: 90%;
+    margin-bottom: -50px;
+    padding: 20px;
+  }
+  
+  .contenedor_seccion {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .social-icons {
+    justify-content: center;
+  }
+  
+  .derechos_reservados {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
+
+/* MÓVILES PEQUEÑOS (480px y menos) */
+@media screen and (max-width: 480px) {
+  /* NAVBAR */
+  .logo-principal {
+    height: 40px;
+  }
+  
+  .buscar-input {
+    font-size: 14px;
+    background-size: 20px;
+    padding-left: 35px;
+  }
+  
+  /* HERO SECTION */
+  .hero {
+    height: 60vh;
+  }
+  
+  .content h1 {
+    font-size: 32px;
+  }
+  
+  .content p {
+    font-size: 14px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .stats h2 {
+    font-size: 18px;
+  }
+  
+  .stats p {
+    font-size: 14px;
+  }
+
+  /* PRODUCTOS */
+  .nuevos_productos h2, .top_ventas h2 {
+    font-size: 24px;
+  }
+  
+  .titulo_producto {
+    font-size: 18px;
+  }
+  
+  .precio_producto {
+    font-size: 16px;
+  }
+  
+  .add-to-cart-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  /* PROMOCIONAL */
+  .promocional h1 {
+    font-size: 16px;
+  }
+  
+  .promocional input, .promocional button {
+    height: 40px;
+    font-size: 14px;
+  }
+  
+  /* FOOTER */
+  .logo_byke {
+    height: 80px;
+  }
+  
+  .texto {
+    font-size: 14px;
+  }
+  
+  .seccion h4 {
+    padding-bottom: 10px;
+  }
+  
+  .seccion li {
+    font-size: 14px;
+  }
+}
+
+/* ORIENTACIÓN LANDSCAPE PARA MÓVILES */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    height: 120vh;
+  }
+  
+  .stats {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  .navbar {
+    padding: 5px 3%;
+  }
+  
+  .box {
+    height: 150px;
   }
 }

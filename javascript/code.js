@@ -1,83 +1,90 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const formCliente = document.getElementById('formCliente');
-    
-    formCliente.addEventListener('submit', async function(event) {
-        event.preventDefault();
-        
-        // 
-        const nombre = document.getElementById('nombre').value;
-        const apellido = document.getElementById('apellido').value;
-        const correo = document.getElementById('correo').value;
-        const telefono = document.getElementById('telefono').value;
-        const contrasena = document.getElementById('contrasena').value;
-        const repetirContrasena = document.getElementById('repetir-contrasena').value;
-        
-        // Validacion para que el cliente no deje ningun campo vacio
-        if (!nombre || !apellido || !correo ||!telefono || !contrasena ) {
-            alert('Por favor, complete todos los campos obligatorios');
-            return;
-        }
+document.getElementById("formCliente").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-       // Validacion para que el nombre y el apellido solo contengan letras. 
-        const solo_texto = /^[a-zA-ZÀ-ÿ\s]+$/;
-        if (!solo_texto.test(nombre)) {
-            alert('El nombre solo debe contener letras');
+    const nombre = document.getElementById("nombre").value;
+    const apellido = document.getElementById("apellido").value;
+    const correo = document.getElementById("correo").value;
+    const telefono = document.getElementById("telefono").value;
+    const contrasena = document.getElementById("contrasena").value;
+    const repetirContrasena = document.getElementById("repetir-contrasena").value;
+    //Validar que no dejen campos vacios
+    if (!nombre || !apellido || !correo || !telefono || !contrasena || !repetirContrasena) {
+        alert("Todos los campos son obligatorios.");
+        return;
+    }
+
+     // Validar nombre y apellido (solo letras)
+     const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+     if (!soloLetras.test(nombre)) {
+         alert("El nombre solo debe contener letras.");
+         return;
+     }
+ 
+     if (!soloLetras.test(apellido)) {
+         alert("El apellido solo debe contener letras.");
+         return;
+     }
+ 
+     // Validar teléfono (solo números)
+     const soloNumeros = /^[0-9]+$/;
+     if (!soloNumeros.test(telefono)) {
+         alert("El teléfono solo debe contener números.");
+         return;
+     }
+ 
+     // Validar longitud de la contraseña
+     if (contrasena.length < 6) {
+         alert("La contraseña debe tener al menos 6 caracteres.");
+         return;
+     }
+ 
+     // Validar coincidencia de contraseñas
+     if (contrasena !== repetirContrasena) {
+         alert("Las contraseñas no coinciden.");
+         return;
+     }
+     //Formato de correo valido
+     const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     if (!formatoCorreo.test(correo)) {
+         alert("El correo no tiene un formato válido.");
+         return;
+     }
+     
+
+     
+
+    const cliente = {
+        nombre,
+        apellido,
+        correo,
+        telefono,
+        contrasena
+    };
+    
+
+    try {
+        const response = await fetch("http://localhost:3000/api/clientes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(cliente),
+        });
+    
+        const data = await response.json();
+    
+        if (!response.ok) {
+            // Si el servidor responde con error, mostramos el mensaje
+            const errorMessage = data.message || "Correo ya registrado. Ingresa otro";
+            alert( errorMessage);
             return;
         }
-        if (!solo_texto.test(apellido)) {
-            alert('El apellido solo debe contener letras');
-            return;
-        }
-        
-        // Validacion para que el campo telefono solo deje ingresar numeros.
-        const phoneRegex = /[0-9]/;
-        if (!phoneRegex.test(telefono)) {
-            alert('El teléfono debe contener solo números.');
-            return;
-        }
-        
-        //  validar si las contraseñas coinciden
-        if (contrasena !== repetirContrasena) { //si la contraseña es diferente mostrar mensaje.
-            alert('Las contraseñas no coinciden');
-            return;
-        }
-        
-        
-        // Prepare data for sending
-        const data = {
-            nombre,
-            apellido,
-            correo,
-            telefono,
-            contrasena
-        };
-        
-        try {
-            // Send registration request
-            const response = await fetch('http://localhost:3000/api/registro', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-            
-            const result = await response.json();
-            
-            if (!response.ok) {
-                throw new Error(result.error || 'Error en el registro');
-            }
-            
-            // Save token in localStorage
-            localStorage.setItem('authToken', result.token);
-            
-            // Show success message and redirect
-            alert('Registro exitoso! Redirigiendo al inicio de sesión...');
-            window.location.href = 'login.html';
-            
-        } catch (error) {
-            console.error('Error:', error);
-            alert(error.message);
-        }
-    });
+    
+        alert("Registro exitoso.");
+        window.location.href = "login.html";
+    
+    } catch (error) {
+        console.error("Error al registrar:", error);
+        alert("Hubo un error al conectar con el servidor.");
+    }
 });

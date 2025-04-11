@@ -22,7 +22,7 @@
               <input type="text" id="calle" name="calle" required>
         
               <label for="pago">Método de pago</label>
-              <select id="pago" name="pago" required onchange="mostrarFormularioPago()">
+              <select id="pago" name="pago" >
                 <option value="">Selecciona una opción</option>
                 <option value="tarjeta">Tarjeta de Crédito/Débito</option>
                 <option value="paypal">PayPal</option>
@@ -43,8 +43,15 @@
               <button type="submit">Finalizar Compra</button>
         
             </form>
+
+
           </div>
-      <script src="/javascript/direccion.js"></script>
-        
+
+          <div id="detalle-compra" class="hidden">
+            <h2>Resumen de tu compra</h2>
+            <ul id="detalle-lista"></ul>
+          </div>
+          
+        <script src="/javascript/direccion.js"></script>
     </body>
     </html>
