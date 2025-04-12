@@ -290,6 +290,80 @@ app.post("/finalizar-compra", async (req, res) => {
 });
 
 
+app.get("/productos-vendidos", (req, res) => {
+  const { desde, hasta } = req.query;
+
+  let filtroFecha = "";
+  if (desde && hasta) {
+    filtroFecha = `AND c.fecha_compra BETWEEN ? AND ?`;
+  }
+
+  const query = `
+    SELECT 
+      p.id AS id,
+      p.nombre,
+      c.fecha_compra,
+      dv.precio
+    FROM detalle_venta dv
+    INNER JOIN productos p ON dv.id_producto = p.id
+    INNER JOIN compras c ON dv.id_compra = c.id_compras
+    WHERE 1=1 ${filtroFecha}
+    ORDER BY c.fecha_compra DESC
+  `;
+
+  const params = desde && hasta ? [desde, hasta] : [];
+
+  conexion.query(query, params, (err, resultados) => {
+    if (err) {
+      console.error("❌ Error al obtener productos vendidos:", err.sqlMessage || err);
+      return res.status(500).json({ message: err.sqlMessage || "Error al obtener datos." });
+    }
+    res.json(resultados);
+  });
+});
+
+
+
+
+app.get("/productos-mas-vendidos", (req, res) => {
+  const { desde, hasta } = req.query;
+
+  let filtroFecha = "";
+  if (desde && hasta) {
+    filtroFecha = `AND c.fecha_compra BETWEEN ? AND ?`;
+  }
+
+  const query = `
+    SELECT 
+      p.id AS id,
+      p.nombre,
+      AVG(dv.precio) AS precio_unitario,
+      SUM(dv.cantidad) AS unidades_vendidas,
+      SUM(dv.precio * dv.cantidad) AS total
+    FROM detalle_venta dv
+    INNER JOIN productos p ON dv.id_producto = p.id
+    INNER JOIN compras c ON dv.id_compra = c.id_compras
+    WHERE 1=1 ${filtroFecha}
+    GROUP BY p.id, p.nombre
+    ORDER BY unidades_vendidas DESC
+  `;
+
+  const params = desde && hasta ? [desde, hasta] : [];
+
+  conexion.query(query, params, (err, resultados) => {
+    if (err) {
+      console.error("❌ Error al obtener productos más vendidos:", err.sqlMessage || err);
+      return res.status(500).json({ message: err.sqlMessage || "Error al obtener datos." });
+    }
+    res.json(resultados);
+  });
+});
+
+
+
+
+
+
 // Ruta de productos (ejemplo modular)
 const productosRoutes = require("./productos");
 app.use("/productos", productosRoutes);

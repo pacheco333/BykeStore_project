@@ -535,3 +535,261 @@ h1 {
     height: 50px;
   }
 }
+
+/* Estilos responsivos para detalle.css */
+
+/* Estilos base existentes - No se modifican */
+
+/* Media Queries para diferentes tamaños de pantalla */
+
+/* Tablets y dispositivos medianos (768px - 1024px) */
+@media screen and (max-width: 1024px) {
+  /* Contenedor principal */
+  .contenedor {
+    width: 90%;
+  }
+
+  /* Ajuste de espacio en producto */
+  .producto {
+    gap: 60px;
+  }
+
+  /* Ajuste de espacio en galería */
+  .galeria {
+    gap: 40px;
+  }
+
+  /* Imagen principal más pequeña */
+  .principal_imagen {
+    width: 350px;
+  }
+
+  /* Sección promocional ajustada */
+  .promocional {
+    width: 70%;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  /* Footer ajustado */
+  .contenedor_seccion {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Tablets pequeñas y dispositivos móviles grandes (576px - 767px) */
+@media screen and (max-width: 767px) {
+  /* Navbar ajustado */
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 5%;
+  }
+
+  .logo-principal {
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .buscar-contenedor {
+    width: 100%;
+  }
+
+  .iconos-container {
+    margin: 15px 0;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Producto y galería en columna */
+  .producto {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .galeria {
+    flex-direction: column-reverse;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .img_izquierda {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .principal_imagen {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .detalles {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cantidad {
+    justify-content: center;
+  }
+
+  /* Tarjetas en columna */
+  .tarjetas {
+    grid-auto-flow: row;
+    gap: 20px;
+  }
+
+  /* Sección promocional a pantalla completa */
+  .promocional {
+    width: 90%;
+    margin-bottom: -50px;
+  }
+
+  .promocional h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  /* Footer ajustado */
+  .contenedor_seccion {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Dispositivos móviles pequeños (hasta 575px) */
+@media screen and (max-width: 575px) {
+  /* Header compacto */
+  .header {
+    font-size: 12px;
+    height: auto;
+    padding: 10px;
+  }
+
+  /* Nav links apilados */
+  .nav-links li {
+    margin: 5px 10px;
+  }
+
+  /* Galería simplificada */
+  .img_izquierda img {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Detalles del producto */
+  h1 {
+    font-size: 20px;
+  }
+
+  .precio {
+    font-size: 18px;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+  }
+
+  /* Sección promocional */
+  .promocional {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .promocional h1 {
+    font-size: 16px;
+  }
+
+  .enviar_promocion {
+    width: 100%;
+  }
+
+  /* Footer simplificado */
+  .contenedor_seccion {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .seccion {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .derechos_reservados {
+    text-align: center;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+}
+
+/* Ajustes específicos para dispositivos muy pequeños */
+@media screen and (max-width: 375px) {
+  .contenedor {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .img_izquierda {
+    gap: 10px;
+  }
+
+  .img_izquierda img {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Usuario logueado */
+  #user-info {
+    min-width: 150px;
+    padding: 5px;
+  }
+
+  .boton-usuario button {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
+
+/* Ajuste para login dropdown */
+@media screen and (max-width: 767px) {
+  #user-info {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+}
+
+/* Fix para hover de usuarios en dispositivos táctiles */
+@media (hover: none) {
+  #login-container:hover #user-info {
+    display: none;
+  }
+}
+
+/* Ajuste para el carrito (contador) */
+@media screen and (max-width: 767px) {
+  .cart-badge {
+    top: -5px;
+    right: -5px;
+  }
+}

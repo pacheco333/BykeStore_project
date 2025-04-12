@@ -2,21 +2,23 @@
   display: grid;
   grid-template-columns: repeat(4, 2fr);
   gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .tarjeta {
   border: 2px solid #f0f0f0;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   border-radius: 10px;
   transition: all 0.3s ease;
-  margin: 1rem;
+  margin: 1rem auto;
 }
 
 .tarjeta:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
   background-color: #f0f0f0;
-  border-radius: 10px;
 }
 
 .producto-imagen {
@@ -37,4 +39,32 @@
 .descripcion_producto {
   padding-left: 10px;
   padding-bottom: 10px;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets (pantallas menores a 1024px) */
+@media (max-width: 1024px) {
+  .tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Teléfonos (pantallas menores a 768px) */
+@media (max-width: 768px) {
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+
+  .titulo_producto {
+    font-size: 24px;
+  }
+
+  .precio_producto {
+    font-size: 18px;
+  }
+
+  .tarjeta {
+    margin: 1rem;
+  }
 }

@@ -14,26 +14,27 @@ body {
   height: 100vh;
   margin: 0;
 }
+
 /* Posiciona la flecha en la esquina superior izquierda */
 i {
   position: fixed;
-  top: 10px; /* Ajusta según sea necesario */
-  left: 10px; /* Ajusta según sea necesario */
+  top: 10px;
+  left: 10px;
   cursor: pointer;
-  z-index: 1000; /* Asegúrate de que la flecha esté encima de otros elementos */
+  z-index: 1000;
   font-size: 24px;
 }
 
 a:visited i {
-  color: black; /* asegurate que los íconos no cambien al ser visitados */
+  color: black;
 }
-
 
 .container {
   background-color: white;
   border-radius: 20px;
   padding: 40px;
   width: 350px;
+  max-width: 90%;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -76,6 +77,7 @@ input[type="password"] {
   cursor: pointer;
   margin-top: 20px;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .social-icons {
@@ -112,4 +114,45 @@ svg {
 
 .register-link a:hover {
   text-decoration: underline;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Para pantallas pequeñas (celulares) */
+@media (max-width: 480px) {
+  .container {
+    padding: 25px 20px;
+    width: 90%;
+  }
+
+  h1 {
+    font-size: 26px;
+    margin-bottom: 30px;
+  }
+
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .social-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  label, input {
+    font-size: 14px;
+  }
+}
+
+/* Para tablets o pantallas medianas */
+@media (max-width: 768px) {
+  .container {
+    width: 80%;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
 }

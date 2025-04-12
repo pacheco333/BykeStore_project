@@ -1,5 +1,4 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 20px;
   text-align: center;
 }
@@ -29,4 +28,102 @@ body {
   transform: scale(1.05);
   background-color: #f0f0f0;
   border-radius: 10px;
+}
+
+
+/* 🔹 Estilo para el encabezado principal */
+h1 {
+  font-family: 'Baloo Chettan 2', cursive;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* 🔹 Estilo para subtítulos */
+h2 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.8rem;
+  color: #444;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 🔹 Estilo general para el formulario */
+form#product-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafafa;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+}
+
+/* 🔹 Etiquetas del formulario */
+form#product-form label {
+  font-weight: bold;
+  margin-top: 1rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* 🔹 Inputs del formulario */
+form#product-form input[type="text"],
+form#product-form input[type="file"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* 🔹 Botón del formulario */
+form#product-form button {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form#product-form button:hover {
+  background-color: #43a047;
+}
+
+/* 🔹 Estilo para tarjetas individuales */
+.product-card h3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.2rem;
+  margin: 0.8rem 0;
+}
+
+.product-card p {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+/* 🔹 Responsive: rejilla adaptable */
+@media screen and (max-width: 1024px) {
+  .product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .product-container {
+    grid-template-columns: 1fr;
+  }
+
+  form#product-form {
+    width: 90%;
+    padding: 1rem;
+  }
 }

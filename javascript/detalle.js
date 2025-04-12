@@ -19,9 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const imagenSrc = `data:image/png;base64,${imagenBase64}`;
 
       document.getElementById("imagenPrincipal").src = imagenSrc;
-      document.getElementById("vista1").src = imagenSrc;
-      document.getElementById("vista2").src = imagenSrc;
-      document.getElementById("vista3").src = imagenSrc;
+      
 
       document.getElementById("nombreProducto").textContent = producto.nombre;
       document.getElementById(

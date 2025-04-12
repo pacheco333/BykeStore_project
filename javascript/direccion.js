@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const usuario = JSON.parse(localStorage.getItem("usuario")); // Se guarda al hacer login
 
     if (!usuario || carrito.length === 0) {
-      alert("Debes iniciar sesión y tener productos en el carrito.");
+      alert("Debes iniciar sesión primero y tener productos en el carrito.");
       return;
     }
 

@@ -24,21 +24,8 @@
               <label for="pago">Método de pago</label>
               <select id="pago" name="pago" >
                 <option value="">Selecciona una opción</option>
-                <option value="tarjeta">Tarjeta de Crédito/Débito</option>
-                <option value="paypal">PayPal</option>
+                <option value="tarjeta">Pago contra entrega</option>
               </select>
-        
-              <!-- Formulario de Tarjeta de Crédito (oculto por defecto) -->
-              <div id="formularioTarjeta" class="hidden">
-                <label for="numeroTarjeta">Número de Tarjeta</label>
-                <input type="text" id="numeroTarjeta" name="numeroTarjeta" placeholder="1234 5678 9012 3456">
-        
-                <label for="fechaExpiracion">Fecha de Caducidad</label>
-                <input type="month" id="fechaExpiracion" name="fechaExpiracion">
-        
-                <label for="cvc">Código CVC</label>
-                <input type="text" id="cvc" name="cvc" placeholder="123" maxlength="3">
-              </div>
         
               <button type="submit">Finalizar Compra</button>
         

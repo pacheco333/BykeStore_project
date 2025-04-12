@@ -148,3 +148,82 @@ svg {
 .login-link a:hover {
   text-decoration: underline;
 }
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 20px;
+    margin: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  h1 {
+    font-size: 28px;
+    padding-bottom: 30px;
+  }
+
+  label {
+    font-size: 15px;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .btn-register {
+    max-width: 100%;
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .social-text {
+    font-size: 13px;
+  }
+
+  .social-icons {
+    gap: 10px;
+  }
+
+  .social-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .login-link {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 24px;
+  }
+
+  .container {
+    padding: 25px 15px;
+  }
+
+  .btn-register {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .social-text,
+  .login-link {
+    font-size: 12px;
+  }
+
+  .social-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  i {
+    font-size: 20px;
+    top: 8px;
+    left: 8px;
+  }
+}
