@@ -28,8 +28,24 @@ Create table productos(
     precio varchar (255), 
     descripcion varchar(255)
 );
+INSERT INTO compras (id_usuarios, total_compra)
+VALUES 
+  (1, 1500.00),
+  (1, 2200.00);
 
 select * from productos;
+INSERT INTO productos (imagen, nombre, precio, descripcion)
+VALUES 
+  (NULL, 'Bicicleta Urbana', '2200.00', 'Bicicleta ligera para la ciudad');
+
+INSERT INTO detalle_venta (id_compra, id_producto, cantidad, precio)
+VALUES 
+  (1, 1, 2, 750.00),
+  (4, 4, 1, 2200.00);
+
+
+
+
 
 select * from compras;
 
