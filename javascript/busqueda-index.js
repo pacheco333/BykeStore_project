@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       .add-to-cart-btn {
-        background-color: #2e8b57; /* Verde bosque */
+        background-color:rgb(255, 255, 255); /* Verde bosque */
         color: white;
         border: none;
         border-radius: 4px;
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       
       .add-to-cart-btn:hover {
-        background-color: #3cb371; /* Verde más claro al pasar el cursor */
+        background-color: white; /* Verde más claro al pasar el cursor */
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
@@ -310,7 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #2e8b57;
+      background-color:rgb(0, 0, 0);
       color: white;
       padding: 10px 20px;
       border-radius: 4px;

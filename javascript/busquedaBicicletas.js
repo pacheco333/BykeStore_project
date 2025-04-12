@@ -27,14 +27,24 @@ function mostrarProductos(productos) {
   }
 
   productos.forEach((producto) => {
-    const tieneImagen = typeof producto.imagen === "string" && producto.imagen.trim() !== "";
+    // ✅ Función para convertir buffer a base64
+    function bufferToBase64(bufferData) {
+      const binary = bufferData.map(byte => String.fromCharCode(byte)).join("");
+      return window.btoa(binary);
+    }
+
+    // ✅ Verificamos si es un buffer, y lo convertimos
+    let imagenBase64 = "";
+    if (producto.imagen && producto.imagen.data) {
+      imagenBase64 = bufferToBase64(producto.imagen.data);
+    }
 
     const tarjeta = document.createElement("div");
     tarjeta.classList.add("tarjeta");
-    
+
     tarjeta.innerHTML = `
       <a href="detalle.html?id=${producto.id}">
-        ${tieneImagen ? `<img src="data:image/png;base64,${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">` : ""}
+        ${imagenBase64 ? `<img src="data:image/png;base64,${imagenBase64}" alt="${producto.nombre}" class="producto-imagen">` : ""}
         <div class="info_producto">
           <h3 class="titulo_producto">${producto.nombre}</h3>
           <p class="precio_producto">$${producto.precio}</p>
@@ -42,8 +52,8 @@ function mostrarProductos(productos) {
         </div>
       </a>
     `;
-    
 
     contenedor.appendChild(tarjeta);
   });
 }
+
