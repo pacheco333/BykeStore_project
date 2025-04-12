@@ -18,6 +18,49 @@ body {
   margin: 2rem;
 }
 
+.header-container {
+  display: flex;
+  gap: 8px; /* espacio entre los botones */
+  justify-content: right
+}
+
+.volver-container {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 999;
+}
+
+.volver-container i {
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.volver-container i:hover {
+  color: #000;
+  transform: scale(1.1);
+}
+
+
+.stats-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.stats-button:hover {
+  background-color: #45a049;
+}
 .producto-imagen {
   max-width: 100%;
   border-radius: 1rem;

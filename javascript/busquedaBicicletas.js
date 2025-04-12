@@ -27,23 +27,22 @@ function mostrarProductos(productos) {
   }
 
   productos.forEach((producto) => {
-    const imagenSrc = producto.imagen
-      ? `data:image/png;base64,${producto.imagen}`
-      : "/img/placeholder.png";
+    const tieneImagen = typeof producto.imagen === "string" && producto.imagen.trim() !== "";
 
     const tarjeta = document.createElement("div");
     tarjeta.classList.add("tarjeta");
-
+    
     tarjeta.innerHTML = `
-        <a href="detalle.html?id=${producto.id}">
-          <img src="${imagenSrc}" alt="${producto.nombre}" class="producto-imagen">
-          <div class="info_producto">
-            <h3 class="titulo_producto">${producto.nombre}</h3>
-            <p class="precio_producto">$${producto.precio}</p>
-            <p class="descripcion_producto">${producto.descripcion}</p>
-          </div>
-        </a>
-      `;
+      <a href="detalle.html?id=${producto.id}">
+        ${tieneImagen ? `<img src="data:image/png;base64,${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">` : ""}
+        <div class="info_producto">
+          <h3 class="titulo_producto">${producto.nombre}</h3>
+          <p class="precio_producto">$${producto.precio}</p>
+          <p class="descripcion_producto">${producto.descripcion}</p>
+        </div>
+      </a>
+    `;
+    
 
     contenedor.appendChild(tarjeta);
   });

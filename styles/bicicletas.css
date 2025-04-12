@@ -385,31 +385,49 @@ section {
   gap: 1rem;
 }
 
-.imagen_bicicleta {
-  max-width: 100%;
-  border-radius: 1rem;
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
 }
 
-.producto {
-  transition: all 0.3s ease;
+.tarjeta {
+  border: 2px solid var(--light-gray);
+  width: 100%;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  margin: 1rem;
+  overflow: hidden;
 }
 
-.producto:hover {
+.tarjeta:hover {
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   transform: scale(1.05);
-  background-color: #f0f0f0;
+  background-color: var(--light-gray);
+  transition: all 0.3s ease-in-out;
   border-radius: 10px;
 }
 
+.producto-imagen {
+  width: 100%;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
 .titulo_producto {
+  font-size: 30px;
   padding-left: 10px;
+  margin-top: 10px;
 }
 
 .precio_producto {
+  font-size: 20px;
   padding-left: 10px;
+  margin-bottom: 10px;
 }
 
-.precio_producto {
+.descripcion_producto {
+  padding-left: 10px;
   padding-bottom: 10px;
 }
 
