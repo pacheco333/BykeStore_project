@@ -53,6 +53,7 @@ body {
   flex-wrap: wrap; /* Permite que las tablas se coloquen una debajo de otra en dispositivos pequeños */
 }
 
+<<<<<<< HEAD
 
 .volver-container {
   position: absolute;
@@ -71,6 +72,16 @@ body {
 .volver-container i:hover {
   color: #000;
   transform: scale(1.1);
+=======
+.arrow img {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 30px; /* Tamaño fijo para la flecha */
+  height: auto;
+  cursor: pointer;
+  z-index: 1000;
+>>>>>>> d479d03bf2c75b96591fb75b4f8435097e146969
 }
 
 /* Aplica mismo tamaño a cada columna */

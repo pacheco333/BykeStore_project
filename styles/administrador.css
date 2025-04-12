@@ -20,6 +20,7 @@ body {
 
 .header-container {
   display: flex;
+<<<<<<< HEAD
   gap: 8px; /* espacio entre los botones */
   justify-content: right
 }
@@ -44,6 +45,13 @@ body {
 }
 
 
+=======
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+>>>>>>> d479d03bf2c75b96591fb75b4f8435097e146969
 .stats-button {
   background-color: #4CAF50;
   color: white;
