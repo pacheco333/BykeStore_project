@@ -1,91 +1,180 @@
-body{
-    background-color: #f5f7fa;
+body {
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
 .filtro-fechas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 20px;
-    font-family: Arial, sans-serif;
-  }
-  .filtro-fechas input,
-  .filtro-fechas button {
-    padding: 5px 10px;
-    font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 0 15px;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+}
+
+.filtro-fechas input,
+.filtro-fechas button {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.filtro-fechas button {
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filtro-fechas button:hover {
+  background-color: #e0e0e0;
+}
+
+.tablas {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 10px;
+  margin-top: 30px;
+  background-color: #f5f7fa;
+  align-items: stretch;
+  flex-wrap: wrap; /* Permite que las tablas se coloquen una debajo de otra en dispositivos pequeños */
+}
+
+.arrow img {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 30px; /* Tamaño fijo para la flecha */
+  height: auto;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Aplica mismo tamaño a cada columna */
+.todo, .mas {
+  flex: 1;
+  min-width: 300px; /* Establece un ancho mínimo antes de hacer wrap */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; /* Espacio cuando están apiladas */
+}
+
+/* Títulos */
+.ventas-title {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: #000;
+  padding: 0 10px;
+}
+
+/* Tablas */
+.ventas-table {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  min-height: 350px;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  border: 2px solid rgb(75, 75, 75);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.571);
+  margin-bottom: 20px;
+}
+
+/* Celdas */
+.ventas-table th,
+.ventas-table td {
+  border: 1px solid rgb(75, 75, 75);
+  padding: 8px;
+  text-align: center;
+}
+
+/* Esquinas redondeadas */
+.ventas-table th:first-child {
+  border-top-left-radius: 8px;
+}
+.ventas-table th:last-child {
+  border-top-right-radius: 8px;
+}
+.ventas-table tr:last-child td:first-child {
+  border-bottom-left-radius: 8px;
+}
+.ventas-table tr:last-child td:last-child {
+  border-bottom-right-radius: 8px;
+}
+
+/* Media queries para diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+  .tablas {
+      flex-direction: column;
+      align-items: center;
   }
   
-.tablas {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    margin-top: 50px;
-    background-color: #f5f7fa;
-    align-items: stretch;
+  .todo, .mas {
+      width: 100%;
+  }
+  
+  .ventas-table {
+      width: 95%;
+      min-height: auto;
+  }
+  
+  .ventas-title {
+      font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filtro-fechas {
+      flex-direction: column;
+      width: 100%;
+  }
+  
+  .filtro-fechas input,
+  .filtro-fechas button {
+      width: 100%;
+      margin: 5px 0;
+  }
+  
+  .ventas-table th,
+  .ventas-table td {
+      padding: 6px 4px;
+      font-size: 0.9rem;
+  }
+  
+  .ventas-title {
+      font-size: 1.1rem;
   }
   
   .arrow img {
-    position: fixed;
-    top: 10px; /* Ajusta según sea necesario */
-    left: 10px; /* Ajusta según sea necesario */
-    cursor: pointer;
-    z-index: 1000; /* Asegúrate de que la flecha esté encima de otros elementos */
+      width: 25px;
   }
-  
-  /* Aplica mismo tamaño a cada columna */
-  .todo, .mas {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Títulos */
-  .ventas-title {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color: #000;
-  }
-  
-  /* Tablas */
-  .ventas-table {
-    width: 100%;
-    max-width: 600px;
-    height: 100%;
-    min-height: 450px; /* para que ambas tablas tengan la misma altura */
-    border-collapse: separate;
-    border-spacing: 0;
-    font-family: Arial, sans-serif;
-    background-color: white;
-    border: 2px solid rgb(75, 75, 75);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.571);
 }
 
-  
-  /* Celdas */
+/* Para pantallas muy pequeñas */
+@media (max-width: 350px) {
   .ventas-table th,
   .ventas-table td {
-    border: 1px solid rgb(75, 75, 75);
-    padding: 10px;
-    text-align: center;
+      padding: 4px 2px;
+      font-size: 0.8rem;
   }
-  
-  /* Esquinas redondeadas */
-  .ventas-table th:first-child {
-    border-top-left-radius: 10px;
-  }
-  .ventas-table th:last-child {
-    border-top-right-radius: 10px;
-  }
-  .ventas-table tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
-  }
-  .ventas-table tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
-  }
-  
+}
