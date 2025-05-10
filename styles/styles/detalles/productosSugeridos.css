@@ -1,0 +1,40 @@
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(4, 2fr);
+  gap: 1rem;
+}
+
+.tarjeta {
+  border: 2px solid #f0f0f0;
+  width: 400px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  margin: 1rem;
+}
+
+.tarjeta:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.producto-imagen {
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.titulo_producto {
+  font-size: 30px;
+  padding-left: 10px;
+}
+
+.precio_producto {
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.descripcion_producto {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}

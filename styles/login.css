@@ -15,13 +15,19 @@ body {
   margin: 0;
 }
 /* Posiciona la flecha en la esquina superior izquierda */
-.arrow img {
+i {
   position: fixed;
   top: 10px; /* Ajusta según sea necesario */
   left: 10px; /* Ajusta según sea necesario */
   cursor: pointer;
   z-index: 1000; /* Asegúrate de que la flecha esté encima de otros elementos */
+  font-size: 24px;
 }
+
+a:visited i {
+  color: black; /* asegurate que los íconos no cambien al ser visitados */
+}
+
 
 .container {
   background-color: white;

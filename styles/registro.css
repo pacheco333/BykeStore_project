@@ -14,13 +14,18 @@ body {
 }
 
 /* Flecha en la esquina superior derecha */
-.arrow img {
+i {
   position: fixed;
   top: 10px;
   left: 10px;
   font-size: 24px;
   cursor: pointer;
   z-index: 1000;
+  color: black;
+}
+
+a:visited i {
+  color: black; /* asegurate que los íconos no cambien al ser visitados */
 }
 
 /* Contenedor original */
