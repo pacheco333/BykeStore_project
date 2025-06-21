@@ -1,0 +1,57 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/direccion.css">
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
+        <title>Direccion de envio</title>
+    </head>
+    <body>
+        <div class="form-container">
+            <h2>Finalizar Compra</h2>
+            <form class="form-group">
+        
+              <label for="ciudad">Ciudad</label>
+              <input type="text" id="ciudad" name="ciudad" required>
+        
+              <label for="carrera">Carrera</label>
+              <input type="text" id="carrera" name="carrera" required>
+        
+              <label for="calle">Calle</label>
+              <input type="text" id="calle" name="calle" required>
+        
+              <label for="pago">Método de pago</label>
+              <select id="pago" name="pago" >
+                <option value="">Selecciona una opción</option>
+                <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                <option value="paypal">PayPal</option>
+              </select>
+        
+              <!-- Formulario de Tarjeta de Crédito (oculto por defecto) -->
+              <div id="formularioTarjeta" class="hidden">
+                <label for="numeroTarjeta">Número de Tarjeta</label>
+                <input type="text" id="numeroTarjeta" name="numeroTarjeta" placeholder="1234 5678 9012 3456">
+        
+                <label for="fechaExpiracion">Fecha de Caducidad</label>
+                <input type="month" id="fechaExpiracion" name="fechaExpiracion">
+        
+                <label for="cvc">Código CVC</label>
+                <input type="text" id="cvc" name="cvc" placeholder="123" maxlength="3">
+              </div>
+        
+              <button type="submit">Finalizar Compra</button>
+        
+            </form>
+
+
+          </div>
+
+          <div id="detalle-compra" class="hidden">
+            <h2>Resumen de tu compra</h2>
+            <ul id="detalle-lista"></ul>
+          </div>
+          
+        <script src="/javascript/direccion.js"></script>
+    </body>
+    </html>
