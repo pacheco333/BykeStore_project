@@ -4,6 +4,10 @@ const cors = require("cors");
 
 const app = express();
 
+const comprasRoutes = require('./routes/compras'); // Ajusta la ruta según tu estructura
+const detalleVentaRoutes = require('./routes/detalle-venta')
+
+
 app.use(express.json({ limit: "5mb" }));
 app.use(cors({
   origin: ["http://127.0.0.1:5500", "http://localhost:5500"],
@@ -157,7 +161,7 @@ app.post("/api/clientes", (req, res) => {
 
   // Verificación extra por si llega algo vacío
   if (!nombre || !apellido || !correo || !telefono || !contrasena) {
-    console.warn("❗ Campos faltantes en el registro:", req.body);
+    console.warn(" Campos faltantes en el registro:", req.body);
     return res.status(400).json({ message: "Todos los campos son obligatorios." });
   }
 
@@ -183,42 +187,17 @@ app.post("/api/clientes", (req, res) => {
 
     conexion.query(query, valores, (error, resultado) => {
       if (error) {
-        console.error("❌ Error al registrar cliente:", error);
+        console.error(" Error al registrar cliente:", error);
         return res.status(500).json({ message: "Error al registrar el cliente." });
       }
 
-      console.log("✅ Cliente registrado correctamente con ID:", resultado.insertId);
+      console.log(" Cliente registrado correctamente con ID:", resultado.insertId);
       res.status(201).json({ message: "Cliente registrado exitosamente." });
     });
   });
 });
 
 
-
-// CODIGO SIN MODIFICAR PARA EL ROL ID
-
-// app.post("/api/clientes", async (req, res) => {
-//   const { nombre, apellido, correo, telefono, contrasena } = req.body;
-
-//   try {
-//       const [existe] = await db.query("SELECT * FROM clientes WHERE correo = ?", [correo]);
-
-//       if (existe.length > 0) {
-//         return res.status(400).json({ message: "El correo ya está registrado." });
-//     }
-
-//       await db.query(
-//         "INSERT INTO clientes (nombre, apellido, correo, telefono, contrasena, rol_id) VALUES (?, ?, ?, ?, ?, ?)",
-//         [nombre, apellido, correo, telefono, contrasena, 1] // 1 = rol "usuario"
-//     );
-    
-
-//       res.status(201).json({ message: "Cliente registrado exitosamente." });
-//   } catch (error) {
-//       console.error("Error en el servidor:", error);
-//       res.status(500).json({ message: "Error en el servidor." });
-//   }
-// });
 
 
 // Login de clientes (sin bcrypt)
@@ -246,116 +225,11 @@ app.post("/login", (req, res) => {
       cliente: {
         id: cliente.id,
         nombre: cliente.nombre,
+        apellido: cliente.apellido,
         correo: cliente.correo,
         rol_id: cliente.rol_id
       },
     });
-  });
-});
-
-app.post("/finalizar-compra", async (req, res) => {
-  const { id_usuarios, carrito, total_compra } = req.body;
-
-  if (!id_usuarios || !carrito || carrito.length === 0) {
-    return res.status(400).json({ message: "Datos incompletos." });
-  }
-
-  const compraQuery = "INSERT INTO compras (id_usuarios, total_compra) VALUES (?, ?)";
-  conexion.query(compraQuery, [id_usuarios, total_compra], (err, result) => {
-    if (err) {
-      console.error("Error al registrar compra:", err);
-      return res.status(500).json({ message: "Error al registrar la compra." });
-    }
-
-    const id_compra = result.insertId;
-
-    const detalleQuery = "INSERT INTO detalle_venta (id_compra, id_producto, cantidad, precio) VALUES ?";
-    const valores = carrito.map((item) => [
-      id_compra,
-      item.id,
-      item.cantidad,
-      parseFloat(item.precio.replace(/\./g, "")),
-    ]);
-
-    conexion.query(detalleQuery, [valores], (error) => {
-      if (error) {
-        console.error("Error al insertar detalle:", error);
-        return res.status(500).json({ message: "Error al registrar el detalle de compra." });
-      }
-
-      // Guardar en localStorage el detalle para mostrarlo en resumen.html
-      res.status(200).json({ message: "Compra finalizada exitosamente", detalle: valores });
-    });
-  });
-});
-
-
-app.get("/productos-vendidos", (req, res) => {
-  const { desde, hasta } = req.query;
-
-  let filtroFecha = "";
-  if (desde && hasta) {
-    filtroFecha = `AND c.fecha_compra BETWEEN ? AND ?`;
-  }
-
-  const query = `
-    SELECT 
-      p.id AS id,
-      p.nombre,
-      c.fecha_compra,
-      dv.precio
-    FROM detalle_venta dv
-    INNER JOIN productos p ON dv.id_producto = p.id
-    INNER JOIN compras c ON dv.id_compra = c.id_compras
-    WHERE 1=1 ${filtroFecha}
-    ORDER BY c.fecha_compra DESC
-  `;
-
-  const params = desde && hasta ? [desde, hasta] : [];
-
-  conexion.query(query, params, (err, resultados) => {
-    if (err) {
-      console.error("❌ Error al obtener productos vendidos:", err.sqlMessage || err);
-      return res.status(500).json({ message: err.sqlMessage || "Error al obtener datos." });
-    }
-    res.json(resultados);
-  });
-});
-
-
-
-
-app.get("/productos-mas-vendidos", (req, res) => {
-  const { desde, hasta } = req.query;
-
-  let filtroFecha = "";
-  if (desde && hasta) {
-    filtroFecha = `AND c.fecha_compra BETWEEN ? AND ?`;
-  }
-
-  const query = `
-    SELECT 
-      p.id AS id,
-      p.nombre,
-      AVG(dv.precio) AS precio_unitario,
-      SUM(dv.cantidad) AS unidades_vendidas,
-      SUM(dv.precio * dv.cantidad) AS total
-    FROM detalle_venta dv
-    INNER JOIN productos p ON dv.id_producto = p.id
-    INNER JOIN compras c ON dv.id_compra = c.id_compras
-    WHERE 1=1 ${filtroFecha}
-    GROUP BY p.id, p.nombre
-    ORDER BY unidades_vendidas DESC
-  `;
-
-  const params = desde && hasta ? [desde, hasta] : [];
-
-  conexion.query(query, params, (err, resultados) => {
-    if (err) {
-      console.error("❌ Error al obtener productos más vendidos:", err.sqlMessage || err);
-      return res.status(500).json({ message: err.sqlMessage || "Error al obtener datos." });
-    }
-    res.json(resultados);
   });
 });
 
@@ -367,6 +241,10 @@ app.get("/productos-mas-vendidos", (req, res) => {
 // Ruta de productos (ejemplo modular)
 const productosRoutes = require("./productos");
 app.use("/productos", productosRoutes);
+
+app.use('/compras', comprasRoutes);
+app.use('/detalle-venta', detalleVentaRoutes);
+
 
 // Iniciar servidor
 const puerto = process.env.PUERTO || 3000;

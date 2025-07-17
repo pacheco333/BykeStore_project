@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Roles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2:wght@400..800&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet"/>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+           font-family:  "Baloo Chettan 2", sans-serif;
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        h1 {
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            color: rgb(0, 0, 0);
+            padding: 30px;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 300;
+            margin-bottom: 0;
+        }
+
+        .controles {
+            padding: 20px 30px;
+            background: #d1d1d1;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }   
+
+        .btn-refrescar {
+            background: #303030;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .btn-refrescar:hover {
+            background: #218838;
+        }
+
+        .info {
+            color: #6c757d;
+            font-size: 14px;
+        }
+
+        .table-container {
+            padding: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        th {
+            background: #f8f9fa;
+            color: #495057;
+            font-weight: 600;
+            padding: 15px 12px;
+            text-align: left;
+            border-bottom: 2px solid #dee2e6;
+            position: sticky;
+            top: 0;
+        }
+
+        td {
+            padding: 15px 12px;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: middle;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .rol-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .rol-usuario {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .rol-admin {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .rol-superadmin {
+            background: #f3e5f5;
+            color: #7b1fa2;
+            border: 2px solid #7b1fa2;
+            font-weight: 600;
+        }
+
+        .rol-desconocido {
+            background: #fafafa;
+            color: #757575;
+        }
+
+        .asignar, .quitar, .asignar-super {
+            padding: 8px 16px;
+            margin: 0 4px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .asignar {
+            background: #007bff;
+            color: white;
+        }
+
+        .asignar:hover:not(:disabled) {
+            background: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        .quitar {
+            background: #dc3545;
+            color: white;
+        }
+
+        .quitar:hover:not(:disabled) {
+            background: #c82333;
+            transform: translateY(-1px);
+        }
+
+        .asignar-super {
+            background: #7b1fa2;
+            color: white;
+            font-weight: 600;
+            border: 2px solid #7b1fa2;
+        }
+
+        .asignar-super:hover:not(:disabled) {
+            background: #6a1b9a;
+            border-color: #6a1b9a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(123, 31, 162, 0.3);
+        }
+
+        .asignar:disabled, .quitar:disabled, .asignar-super:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .sin-acciones {
+            color: #6c757d;
+            font-style: italic;
+            font-size: 12px;
+        }
+
+        .mensaje {
+            padding: 15px 30px;
+            margin: 0;
+            font-weight: 500;
+            border-left: 4px solid;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .mensaje.exito {
+            background: #d4edda;
+            color: #155724;
+            border-color: #28a745;
+        }
+
+        .mensaje.error {
+            background: #f8d7da;
+            color: #721c24;
+            border-color: #dc3545;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 2em;
+                padding: 20px;
+            }
+
+            .table-container {
+                padding: 15px;
+            }
+
+            .controles {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+
+            .asignar, .quitar, .asignar-super {
+                padding: 6px 12px;
+                font-size: 11px;
+                margin: 2px;
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            .sin-acciones {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Roles</h1>
+        
+        <div class="controles">
+            <div class="info">
+                Administra los roles de los usuarios del sistema
+            </div>
+            <button class="btn-refrescar" onclick="refrescarUsuarios()">
+                 Refrescar Lista
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Rol Actual</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="loading">
+                            Cargando usuarios...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/javascript/gestRoles.js"></script>
+</body>
+</html>

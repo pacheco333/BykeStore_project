@@ -1,110 +1,71 @@
-# Creacion  de la base de datos bike_store
-Create database bike_store;
-# Utilizamos la tabla
-use bike_store;
+CREATE DATABASE bike_store;
+USE bike_store;
 
-#Tabla de clientes
-Create table clientes(
-	id int primary key auto_increment,
-    nombre varchar (255),
-    apellido varchar (255),
-    correo varchar (255) UNIQUE,
-    telefono varchar (15),
-    contrasena varchar (255)
+drop database bike_store;
 
-);
-
-alter table clientes
-change column contraseña contrasena varchar(255);
-
-
-select * from clientes;
-
-#Tabla de productos
-Create table productos(
-    id int primary key auto_increment,
-    imagen longblob,
-    nombre varchar (255),
-    precio varchar (255), 
-    descripcion varchar(255)
-);
-INSERT INTO compras (id_usuarios, total_compra)
-VALUES 
-  (1, 1500.00),
-  (1, 2200.00);
-
-select * from productos;
-INSERT INTO productos (imagen, nombre, precio, descripcion)
-VALUES 
-  (NULL, 'Bicicleta Urbana', '2200.00', 'Bicicleta ligera para la ciudad');
-
-INSERT INTO detalle_venta (id_compra, id_producto, cantidad, precio)
-VALUES 
-  (1, 1, 2, 750.00),
-  (4, 4, 1, 2200.00);
-
-
-
-
-
-select * from compras;
-
-#Tabla de compras
-CREATE TABLE compras (
-  id_compras INT AUTO_INCREMENT PRIMARY KEY,
-  id_usuarios INT,
-  total_compra DECIMAL(10, 2),
-  fecha_compra DATETIME DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (id_usuarios) REFERENCES clientes(id)
-);
-
-DROP TABLE compra;
-
-#tabla de detalle compras o detalle ventas
-CREATE TABLE detalle_venta (
-  id_detalle INT AUTO_INCREMENT PRIMARY KEY,
-  id_compra INT,
-  id_producto INT,
-  cantidad INT,
-  precio DECIMAL(10, 2),
-  FOREIGN KEY (id_compra) REFERENCES compras(id_compras),
-  FOREIGN KEY (id_producto) REFERENCES productos(id)
-);
-
-select * from detalle_venta;
-
-
-#tabla de roles
 CREATE TABLE roles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL UNIQUE
 );
+
+select * from compras;
+select * from detalle_venta;
+select * from clientes;
+select * from productos;
 
 INSERT INTO roles (nombre) VALUES 
 ('usuario'),
 ('administrador'),
 ('superadmin');
 
-SELECT * FROM clientes;
-SELECT * FROM roles;
 
-ALTER TABLE clientes ADD COLUMN rol_id INT DEFAULT 1;
-
-ALTER TABLE clientes
-ADD CONSTRAINT fk_rol_cliente
-FOREIGN KEY (rol_id) REFERENCES roles(id);
-
-SELECT * FROM clientes;
-
-SELECT * FROM roles;
-
-DESCRIBE clientes;
-
-ALTER TABLE clientes
-CHANGE COLUMN contraseña contrasena VARCHAR(255);
+CREATE TABLE clientes (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(255),
+    apellido VARCHAR(255),
+    correo VARCHAR(255) UNIQUE,
+    telefono VARCHAR(15),
+    contrasena VARCHAR(255),
+    rol_id INT DEFAULT 1,
+    FOREIGN KEY (rol_id) REFERENCES roles(id)
+);
 
 
+INSERT INTO clientes (nombre, apellido, correo, telefono, contrasena, rol_id)
+VALUES 
+('admin', 'pacheco', 'admin@gmail.com', '142124141', '123123', 2),
+('superadmin', 'user', 'superadmin12@gmail.com', '544445123', '123456', 3);
+
+
+CREATE TABLE productos (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    imagen LONGBLOB,
+    nombre VARCHAR(255),
+    precio VARCHAR(255),
+    stock INT,
+    descripcion VARCHAR(255),
+    categoria VARCHAR(100),
+    gama VARCHAR(100),
+    activo BOOLEAN DEFAULT TRUE
+);
+
+
+CREATE TABLE compras (
+    id_compras INT AUTO_INCREMENT PRIMARY KEY,
+    id_usuarios INT,
+    total_compra DECIMAL(10, 2),
+    fecha_compra DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_usuarios) REFERENCES clientes(id)
+);
 
 
 
-
+CREATE TABLE detalle_venta (
+    id_detalle INT AUTO_INCREMENT PRIMARY KEY,
+    id_compra INT,
+    id_producto INT,
+    cantidad INT,
+    precio DECIMAL(10, 2),
+    FOREIGN KEY (id_compra) REFERENCES compras(id_compras),
+    FOREIGN KEY (id_producto) REFERENCES productos(id)
+);

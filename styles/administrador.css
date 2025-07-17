@@ -1,3 +1,9 @@
+*{
+ font-family:  "Baloo Chettan 2", sans-serif;
+}
+
+
+
 body {
   margin: 20px;
   text-align: center;
@@ -23,6 +29,27 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-admin {
+  background-color: #2196F3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-admin:hover {
+  background-color: #1976D2;
 }
 
 .stats-button {

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administrador - Ventas</title>
+  <link rel="stylesheet" href="/styles/stats.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+  <style>
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .export-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+    
+    .export-btn:hover {
+      background-color: #218838;
+    }
+    
+    .export-btn:disabled {
+      background-color: #6c757d;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <div class="header-container">
+      <h1>Historial de Ventas</h1>
+      <button id="exportar-pdf" class="export-btn">
+         Exportar PDF
+      </button>
+    </div>
+    
+    <div class="filter-container">
+      <div>
+        <label for="desde1">Desde:</label>
+        <input type="date" id="desde1" />
+      </div>
+      <div>
+        <label for="hasta1">Hasta:</label>
+        <input type="date" id="hasta1" />
+      </div>
+      <button id="filtrar-ventas">Filtrar</button>
+      <button id="ver-todas-ventas">Ver Todas</button>
+    </div>
+
+    <div id="loading-ventas" style="display: none; text-align: center; padding: 20px;">
+      Cargando ventas...
+    </div>
+
+    <table id="tabla-ventas">
+      <thead>
+        <tr>
+          <th>ID Venta</th>
+          <th>Fecha</th>
+          <th>Cliente</th>
+          <th>Productos</th>
+          <th>Unidades</th>
+          <th>Precio Unitario</th>
+          <th>Total con Envío </th>
+        </tr>
+      </thead>
+      <tbody id="tbody-ventas">
+        <tr>
+          <td colspan="7" style="text-align: center; padding: 20px;">
+            Cargando datos...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div id="total-ventas" style="margin-top: 20px; font-weight: bold; text-align: right;">
+      Total de ventas: $0
+    </div>
+  </div>
+
+  <div class="section">
+    <h1>Productos Más Vendidos</h1>
+    <div class="filter-container">
+      <div>
+        <label for="desde2">Desde:</label>
+        <input type="date" id="desde2" />
+      </div>
+      <div>
+        <label for="hasta2">Hasta:</label>
+        <input type="date" id="hasta2" />
+      </div>
+      <button id="filtrar-productos">Filtrar</button>
+      <button id="ver-todos-productos">Ver Todos</button>
+    </div>
+
+    <div id="loading-productos" style="display: none; text-align: center; padding: 20px;">
+      Cargando productos...
+    </div>
+
+    <table id="tabla-productos">
+      <thead>
+        <tr>
+          <th>ID Producto</th>
+          <th>Nombre del Producto</th>
+          <th>Descripción</th>
+          <th>Unidades Vendidas</th>
+          <th>Total Ventas</th>
+        </tr>
+      </thead>
+      <tbody id="tbody-productos">
+        <tr>
+          <td colspan="5" style="text-align: center; padding: 20px;">
+            Cargando datos...
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <img id="logo" src="/img/logo.png" style="display:none;">
+
+ 
+  <script src="/javascript/stats.js"></script>
+</body>
+</html>

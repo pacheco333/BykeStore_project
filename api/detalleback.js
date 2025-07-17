@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const mysql = require('mysql2');
@@ -97,4 +97,4 @@ app.get('/api/productos/:id', (req, res) => {
 // // Iniciar servidor
 // app.listen(port, () => {
 //     console.log(`Servidor corriendo en http://localhost:3000`);
-// });
+// });*/

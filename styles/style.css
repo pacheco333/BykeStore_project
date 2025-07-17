@@ -187,6 +187,72 @@ button {
   transform: scale(1.1);
 }
 
+
+
+
+/* Estilo del saludo */
+.nombre-usuario {
+  font-size: 14px;
+  font-weight: 500;
+  /* margin-bottom: 10px; */
+  color: black;
+}
+
+/* Contenedor para los botones */
+.boton-usuario {
+ margin: 5px 0; 
+ gap: 0;
+}
+
+/* Botón general */
+.boton-usuario button {
+  padding: 3px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Botón Panel Admin */
+.btn-admin {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.btn-admin:hover {
+  background-color: #388e3c;
+  transform: scale(1.05);
+}
+
+/* Botón Cerrar Sesión */
+.btn-logout {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.btn-logout:hover {
+  background-color: #d32f2f;
+  transform: scale(1.05);
+}
+
+/* Ajuste de posición del contenedor del usuario */
+#user-info {
+  display: none;
+  text-align: left;
+  margin-left: 10px;       /* separa del ícono de login */
+  margin-right: 15px;      /* lo empuja lejos del carrito */
+  background-color: rgba(0, 0, 0, 0.1); /* opcional: fondo sutil */
+  padding: 8px;
+  border-radius: 8px;
+  color: white;
+  min-width: 180px;
+  z-index: 1000;
+}
+
+
 /* -------- HERO SECTION -------- */
 .hero {
   position: relative;
@@ -304,6 +370,7 @@ button {
   padding-left: 10px;
   padding-bottom: 10px;
 }
+
 
 .add-to-cart-btn {
   background: var(--primary-color);
@@ -424,7 +491,7 @@ hr {
   font-size: 24px;
 }
 
-.enviar_promocion {
+/* .enviar_promocion {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -454,7 +521,7 @@ hr {
 .promocional button:hover {
   background-color: var(--primary-color);
   color: var(--secondary-color);
-}
+} */
 
 .footer {
   background-color: #ebeaea;
@@ -916,4 +983,21 @@ hr {
   .overlay {
     display: none;
   }
+}
+/* Quitar hover y cursor pointer del footer */
+.footer li {
+  cursor: default !important;
+}
+
+.footer li:hover {
+  color: gray !important;
+}
+
+.footer .social-icon {
+  cursor: default !important;
+}
+
+.footer .social-icon:hover {
+  background-color: var(--secondary-color) !important;
+  color: currentColor !important;
 }

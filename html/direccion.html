@@ -35,9 +35,32 @@
           </div>
 
           <div id="detalle-compra" class="hidden">
-            <h2>Resumen de tu compra</h2>
-            <ul id="detalle-lista"></ul>
+            <h2></h2>
+            <ul id="detalle-lista" class="ls">
+
+            </ul>
           </div>
+
+          
+          <div id="compra-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Detalle de la compra</h2>
+    <table id="tabla-detalle">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Precio Unitario</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <h3 id="total-compra"></h3>
+    <button id="confirmar-compra">Confirmar</button>
+  </div>
+</div>
+
           
         <script src="/javascript/direccion.js"></script>
     </body>

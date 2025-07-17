@@ -7,21 +7,25 @@ async function cargarProductos() {
     let topVentasHTML = "";
 
     productos.forEach((producto, index) => {
-      let tarjeta = `
-        <div class="tarjeta">
-          <a href="detalle.html?id=${producto.id}">
-            <img src="data:image/jpeg;base64,${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">
-            <div class="info_producto">
-              <h3 class="titulo_producto">${producto.nombre}</h3>
-              <p class="precio_producto">$ ${producto.precio}</p>
-              <p class="descripcion_producto">${producto.descripcion}</p>
-            </div>
-          </a>
-          <div class="boton">
-            <button class="add-to-cart-btn" data-id="${producto.id}">Añadir al carrito</button>
-          </div>   
-        </div>
-      `;
+  if (producto.stock <= 0) return; //  No mostrar productos sin stock
+
+  let tarjeta = `
+    <div class="tarjeta">
+    <a href="detalle.html?id=${producto.id}">
+      <img src="data:image/jpeg;base64,${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">
+      <div class="info_producto">
+        <h3 class="titulo_producto">${producto.nombre}</h3>
+        <p class="precio_producto">$ ${producto.precio}</p>
+        <!-- Línea agregada para categoría y gama -->
+        <p class="categoria_producto">${producto.categoria} · ${producto.gama}</p>
+        <p class="descripcion_producto">${producto.descripcion}</p>
+      </div>
+    </a>
+    <div class="boton">
+      <button class="add-to-cart-btn" data-id="${producto.id}">Añadir al carrito</button>
+    </div>   
+  </div>
+  `;
 
       if (index % 2 === 0) {
         nuevosProductosHTML += tarjeta;

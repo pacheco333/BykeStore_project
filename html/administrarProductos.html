@@ -10,11 +10,15 @@
 </head>
 <body>
 
-
-    <div class="header-container">
-        <h1>Panel de Administración</h1>
-        <a href="estadisticas.html" class="stats-button">Estadísticas</a>
+<div class="header-container">
+    <h1>Panel de Administración</h1>
+    <div class="header-buttons">
+        <a href="stats.html" class="stats-button">Estadísticas</a>
+        <a href="gestRoles.html" id="admin-btn-container" style="display: none;">
+            <button class="btn-admin">Gestión de Roles</button>
+        </a>
     </div>
+</div>
 
 
     <form id="product-form">
@@ -26,6 +30,24 @@
 
     <label for="product-desc">Descripción:</label> <!-- 🔹 Agregado este campo -->
     <input type="text" id="product-desc" required>
+    
+      <label for="product-stock">Stock:</label> <!-- 🔹 Campo agregado -->
+    <input type="number" id="product-stock" min="1" required> <!-- 🔹 Input agregado -->
+
+    <label for="product-category">Categoría:</label>
+    <select id="product-category" required>
+        <option value="Ruta">Ruta</option>
+        <option value="Montaña">Montaña</option>
+        <option value="Urbanas">Urbanas</option>
+        <option value="Pista">Pista</option>
+    </select>
+
+    <label for="product-gama">Gama:</label>
+    <select id="product-gama" required>
+        <option value="Alta">Alta</option>
+        <option value="Media">Media</option>
+        <option value="Baja">Baja</option>
+    </select>
 
     <label for="product-image">Imagen:</label>
     <input type="file" id="product-image" accept="image/*" required>
@@ -36,5 +58,6 @@
     <h2>Productos Disponibles</h2>
     <div id="product-container" class="product-container"></div>
     <script src="/javascript/script.js"></script>
+    <script src="/javascript/usuarioActivoAdmin.js"></script>
 </body>
 </html>
