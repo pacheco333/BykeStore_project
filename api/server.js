@@ -1,10 +1,15 @@
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+// Clave secreta para JWT (en producción, debe estar en una variable de entorno)
+const JWT_SECRET = process.env.JWT_SECRET || 'clave-secreta-temporal-cambiar-en-produccion';
 
 const conexion = mysql.createConnection({ 
     host: 'localhost',
@@ -92,6 +97,78 @@ function eliminar(tabla, id) {
 // Rutas en Express
 app.get('/', (req, res) => {
     res.send('Ruta INICIO');
+});
+
+// Ruta de login
+app.post('/api/login', async (req, res) => {
+    try {
+        const { correo, contrasena } = req.body;
+        
+        // Validar que se proporcionaron correo y contraseña
+        if (!correo || !contrasena) {
+            return res.status(400).json({ 
+                error: 'Por favor proporcione correo y contraseña' 
+            });
+        }
+        
+        // Buscar el cliente por correo
+        conexion.query(
+            'SELECT * FROM clientes WHERE correo = ?', 
+            [correo], 
+            async (error, resultados) => {
+                if (error) {
+                    console.error('Error en la consulta:', error);
+                    return res.status(500).json({ error: 'Error en el servidor' });
+                }
+                
+                // Verificar si el usuario existe
+                if (resultados.length === 0) {
+                    return res.status(401).json({ 
+                        error: 'Credenciales inválidas' 
+                    });
+                }
+                
+                const usuario = resultados[0];
+                
+                // Verificar la contraseña
+                // Nota: Si las contraseñas están en texto plano en la BD, comparar directamente
+                // Si están hasheadas, usar bcrypt.compare
+                const contrasenaValida = contrasena === usuario.contraseña;
+                
+                if (!contrasenaValida) {
+                    return res.status(401).json({ 
+                        error: 'Credenciales inválidas' 
+                    });
+                }
+                
+                // Generar token JWT
+                const token = jwt.sign(
+                    { 
+                        id: usuario.id, 
+                        correo: usuario.correo,
+                        nombre: usuario.nombre 
+                    },
+                    JWT_SECRET,
+                    { expiresIn: '24h' } // Token válido por 24 horas
+                );
+                
+                // Enviar respuesta exitosa con el token
+                res.json({
+                    mensaje: 'Login exitoso',
+                    token: token,
+                    usuario: {
+                        id: usuario.id,
+                        nombre: usuario.nombre,
+                        apellido: usuario.apellido,
+                        correo: usuario.correo
+                    }
+                });
+            }
+        );
+    } catch (error) {
+        console.error('Error en login:', error);
+        res.status(500).json({ error: 'Error en el servidor' });
+    }
 });
 
 // Esta ruta devuelve todos los registros
